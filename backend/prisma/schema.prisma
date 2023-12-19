@@ -1,0 +1,129 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  COMPTA
+  ADMIN
+}
+
+enum UserStatus {
+  REGISTRATION_IN_PROGRESS
+  ALLOWED
+  BANNED
+}
+
+model User {
+  id                         Int        @id @default(autoincrement())
+  firstname                  String
+  lastname                   String
+  phoneNumber                String     @unique
+  email                      String     @unique
+  birthDate                  DateTime
+  passwordHash               String
+  twoFactorSecret            String?
+  twoFactorVerified          Boolean    @default(value: false)
+  twoFactorRecoverHash       String?
+  emailVerified              Boolean    @default(value: false)
+  currentEmailVerificationId Int?       @unique
+  role                       UserRole   @default(value: USER)
+  optIn                      Boolean
+  termsOfService             Boolean
+  registerDate               DateTime   @default(now())
+  status                     UserStatus @default(value: REGISTRATION_IN_PROGRESS)
+  antiPhishingCode           String?
+  antiPhishingCodeExpiration DateTime   @default(now())
+
+  // Virtuals fields
+  currentEmailVerification    EmailVerificationCode?        @relation(fields: [currentEmailVerificationId], references: [id])
+  passwordVerificationRequest PasswordVerificationRequest[]
+  tags                        TagsOnUsers[]
+}
+
+enum EmailVerificationStatus {
+  ERROR
+  PENDING
+  VERIFIED
+  EXPIRED
+}
+
+model EmailVerificationCode {
+  id               Int                     @id @default(autoincrement())
+  code             String
+  expiration       DateTime
+  status           EmailVerificationStatus @default(value: PENDING)
+  user             User?
+  numberOfAttempts Int                     @default(value: 0)
+}
+
+model PasswordVerificationRequest {
+  id         Int                     @id @default(autoincrement())
+  userId     Int
+  token      String                  @unique
+  expiration DateTime
+  createdAt  DateTime                @default(now())
+  updatedAt  DateTime                @default(now())
+  status     EmailVerificationStatus @default(value: PENDING)
+
+  // Virtuals fields
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Tag {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  color       String
+  description String?
+
+  // Virtuals fields
+  users TagsOnUsers[]
+}
+
+model TagsOnUsers {
+  tag    Tag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId  Int
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  @@id([tagId, userId])
+}
+
+enum InvoiceStatus {
+  DRAFT
+  UNPAID
+  PAID
+  BAD_DEBT
+}
+
+model InvoiceRow {
+  id           Int    @id @default(autoincrement())
+  description  String
+  amount       Int
+  pricePerUnit Int
+  invoiceId    Int
+
+  // Virtuals fields
+  Invoice Invoice @relation(fields: [invoiceId], references: [id])
+}
+
+model Invoice {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime
+  updatedAt DateTime
+
+  status          InvoiceStatus
+  description     String
+  pdfDocumentUUID String?
+
+  // Virtuals fields
+  rows InvoiceRow[]
+}
