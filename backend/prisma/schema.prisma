@@ -10,38 +10,41 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum UserRole {
+enum USER_ROLE {
   USER
   COMPTA
   ADMIN
 }
 
-enum UserStatus {
+enum USER_STATUS {
   REGISTRATION_IN_PROGRESS
   ALLOWED
   BANNED
 }
 
 model User {
-  id                         Int        @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
   firstname                  String
   lastname                   String
-  phoneNumber                String     @unique
-  email                      String     @unique
+  phoneNumber                String      @unique
+  email                      String      @unique
   birthDate                  DateTime
   passwordHash               String
   twoFactorSecret            String?
-  twoFactorVerified          Boolean    @default(value: false)
+  twoFactorVerified          Boolean     @default(value: false)
   twoFactorRecoverHash       String?
-  emailVerified              Boolean    @default(value: false)
-  currentEmailVerificationId Int?       @unique
-  role                       UserRole   @default(value: USER)
+  emailVerified              Boolean     @default(value: false)
+  currentEmailVerificationId Int?        @unique
+  role                       USER_ROLE   @default(value: USER)
   optIn                      Boolean
   termsOfService             Boolean
-  registerDate               DateTime   @default(now())
-  status                     UserStatus @default(value: REGISTRATION_IN_PROGRESS)
+  registerDate               DateTime    @default(now())
+  status                     USER_STATUS @default(value: REGISTRATION_IN_PROGRESS)
   antiPhishingCode           String?
-  antiPhishingCodeExpiration DateTime   @default(now())
+  antiPhishingCodeExpiration DateTime    @default(now())
 
   // Virtuals fields
   currentEmailVerification    EmailVerificationCode?        @relation(fields: [currentEmailVerificationId], references: [id])
@@ -49,7 +52,7 @@ model User {
   tags                        TagsOnUsers[]
 }
 
-enum EmailVerificationStatus {
+enum EMAIL_VERIFICATION_STATUS {
   ERROR
   PENDING
   VERIFIED
@@ -57,22 +60,22 @@ enum EmailVerificationStatus {
 }
 
 model EmailVerificationCode {
-  id               Int                     @id @default(autoincrement())
+  id               Int                       @id @default(autoincrement())
   code             String
   expiration       DateTime
-  status           EmailVerificationStatus @default(value: PENDING)
+  status           EMAIL_VERIFICATION_STATUS @default(value: PENDING)
   user             User?
-  numberOfAttempts Int                     @default(value: 0)
+  numberOfAttempts Int                       @default(value: 0)
 }
 
 model PasswordVerificationRequest {
-  id         Int                     @id @default(autoincrement())
+  id         Int                       @id @default(autoincrement())
   userId     Int
-  token      String                  @unique
+  token      String                    @unique
   expiration DateTime
-  createdAt  DateTime                @default(now())
-  updatedAt  DateTime                @default(now())
-  status     EmailVerificationStatus @default(value: PENDING)
+  createdAt  DateTime                  @default(now())
+  updatedAt  DateTime                  @default(now())
+  status     EMAIL_VERIFICATION_STATUS @default(value: PENDING)
 
   // Virtuals fields
   user User @relation(fields: [userId], references: [id])
@@ -97,7 +100,7 @@ model TagsOnUsers {
   @@id([tagId, userId])
 }
 
-enum InvoiceStatus {
+enum INVOICE_STATUS {
   DRAFT
   UNPAID
   PAID
@@ -107,8 +110,9 @@ enum InvoiceStatus {
 model InvoiceRow {
   id           Int    @id @default(autoincrement())
   description  String
-  amount       Int
-  pricePerUnit Int
+  // TODO passer en string
+  amount       Float
+  pricePerUnit Float
   invoiceId    Int
 
   // Virtuals fields
@@ -117,13 +121,103 @@ model InvoiceRow {
 
 model Invoice {
   id        Int      @id @default(autoincrement())
-  createdAt DateTime
-  updatedAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 
-  status          InvoiceStatus
+  status          INVOICE_STATUS
   description     String
+  currency        String
   pdfDocumentUUID String?
+  companyId       Int
 
   // Virtuals fields
-  rows InvoiceRow[]
+  rows    InvoiceRow[]
+  company Company      @relation(fields: [companyId], references: [id])
+}
+
+model Company {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  externalBankDataProviderId String
+
+  name String
+
+  // Virtuals fields
+  transactions Transaction[]
+  bankAccount  BankAccount[]
+  bank         Bank[]
+  invoice      Invoice[]
+}
+
+enum TRANSACTION_MODE {
+  NORMAL
+  FEE
+  TRANSFER
+}
+
+model Transaction {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  externalId        String   @unique
+  externalCreatedAt DateTime
+
+  amount      Float
+  currency    String
+  madeOn      DateTime
+  description String
+  isCrypto    Boolean
+  mode        TRANSACTION_MODE
+
+  bankAccountId Int
+  bankId        Int
+  companyId     Int
+
+  // Virtuals fields
+  account BankAccount @relation(fields: [bankAccountId], references: [id])
+  bank    Bank        @relation(fields: [bankId], references: [id])
+  company Company     @relation(fields: [companyId], references: [id])
+}
+
+model BankAccount {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  externalId String @unique
+
+  name     String
+  nature   String
+  balance  Float
+  currency String
+
+  bankId    Int
+  companyId Int
+
+  // Virtuals fields
+  bank         Bank          @relation(fields: [bankId], references: [id])
+  company      Company       @relation(fields: [companyId], references: [id])
+  transactions Transaction[]
+}
+
+model Bank {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  externalId String @unique
+
+  providerId   String
+  providerCode String
+  providerName String
+
+  companyId Int
+
+  // Virtuals fields
+  accounts     BankAccount[]
+  transactions Transaction[]
+  company      Company       @relation(fields: [companyId], references: [id])
 }
