@@ -10,7 +10,7 @@ export type SaltEdgeCustomer = {
   id: string;
 
   /**
-   * Company-Name_id
+   * id postgresql stringifié
    */
   identifier: string;
 

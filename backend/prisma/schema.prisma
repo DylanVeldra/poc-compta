@@ -25,7 +25,7 @@ enum USER_STATUS {
 model User {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   firstname                  String
   lastname                   String
@@ -74,7 +74,7 @@ model PasswordVerificationRequest {
   token      String                    @unique
   expiration DateTime
   createdAt  DateTime                  @default(now())
-  updatedAt  DateTime                  @default(now())
+  updatedAt  DateTime                  @updatedAt
   status     EMAIL_VERIFICATION_STATUS @default(value: PENDING)
 
   // Virtuals fields
@@ -111,8 +111,10 @@ model InvoiceRow {
   id           Int    @id @default(autoincrement())
   description  String
   // TODO passer en string
-  amount       Float
-  pricePerUnit Float
+  // In Cent
+  amount       Int
+  // In Cent
+  pricePerUnit Int
   invoiceId    Int
 
   // Virtuals fields
@@ -122,27 +124,44 @@ model InvoiceRow {
 model Invoice {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  status          INVOICE_STATUS
-  description     String
-  currency        String
-  pdfDocumentUUID String?
-  companyId       Int
+  status         INVOICE_STATUS
+  comptabilityId Int?
+  validatedAt    DateTime?
+  description    String
+  currency       String
+  pdfDocumentUrl String?
+
+  companyId Int
 
   // Virtuals fields
-  rows    InvoiceRow[]
-  company Company      @relation(fields: [companyId], references: [id])
+  rows                   InvoiceRow[]
+  company                Company                  @relation(fields: [companyId], references: [id])
+  transactions           Transaction[]
+  InvoicesOnTransactions InvoicesOnTransactions[]
+}
+
+model InvoicesOnTransactions {
+  invoice       Invoice     @relation(fields: [invoiceId], references: [id])
+  invoiceId     Int
+  transaction   Transaction @relation(fields: [transactionId], references: [id])
+  transactionId Int
+  assignedAt    DateTime    @default(now())
+  assignedBy    Int
+
+  @@id([invoiceId, transactionId])
 }
 
 model Company {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  externalBankDataProviderId String
+  externalBankDataProviderId String?
 
   name String
+  type String
 
   // Virtuals fields
   transactions Transaction[]
@@ -160,12 +179,13 @@ enum TRANSACTION_MODE {
 model Transaction {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   externalId        String   @unique
   externalCreatedAt DateTime
 
-  amount      Float
+  //In Cent
+  amount      Int
   currency    String
   madeOn      DateTime
   description String
@@ -177,21 +197,25 @@ model Transaction {
   companyId     Int
 
   // Virtuals fields
-  account BankAccount @relation(fields: [bankAccountId], references: [id])
-  bank    Bank        @relation(fields: [bankId], references: [id])
-  company Company     @relation(fields: [companyId], references: [id])
+  account                BankAccount              @relation(fields: [bankAccountId], references: [id])
+  bank                   Bank                     @relation(fields: [bankId], references: [id])
+  company                Company                  @relation(fields: [companyId], references: [id])
+  expenseJustification   ExpenseJustification?
+  invoices               Invoice[]
+  InvoicesOnTransactions InvoicesOnTransactions[]
 }
 
 model BankAccount {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   externalId String @unique
 
   name     String
   nature   String
-  balance  Float
+  // In Cent
+  balance  Int
   currency String
 
   bankId    Int
@@ -206,7 +230,7 @@ model BankAccount {
 model Bank {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   externalId String @unique
 
@@ -220,4 +244,34 @@ model Bank {
   accounts     BankAccount[]
   transactions Transaction[]
   company      Company       @relation(fields: [companyId], references: [id])
+}
+
+model ExpenseJustification {
+  // will be same as transactionId
+  id        Int      @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  description   String
+  // in cent
+  deductibleVAT Int
+
+  // Virtuals fields
+  expenseDocuments ExpenseDocument[]
+  transaction      Transaction       @relation(fields: [id], references: [id])
+}
+
+model ExpenseDocument {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name        String
+  contentType String
+  url         String
+
+  expenseJustificationId Int
+
+  // Virtuals fields
+  expenseJustification ExpenseJustification @relation(fields: [expenseJustificationId], references: [id])
 }

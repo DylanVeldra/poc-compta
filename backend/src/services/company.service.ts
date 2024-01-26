@@ -4,71 +4,55 @@ import { INVOICE_STATUS, Prisma } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma.service';
 import { I18NException } from '@utils/exception';
 import { PaginationDto } from '@utils/pipes/pagination';
+import { CreateCompanyDTO } from 'src/dto/company.dto';
+import { SaltEdgeService } from './saltEdge.service';
 // import { PaginationDto } from '@utils/pipes/pagination';
-import { CreateInvoiceDTO } from 'src/dto/invoice.dto';
 // import { EmailService } from '@email/email.service';
 
 @Injectable()
-export class InvoiceService {
-  constructor(private prismaService: PrismaService) {}
+export class CompanyService {
+  constructor(
+    private prismaService: PrismaService,
+    private saltEdgeService: SaltEdgeService,
+  ) {}
 
-  // private async findAvailablePublicId() {
-  //   do {
-  //     var code = CodeGenerator.generate(6, Base.ALPHANUM);
-  //     var depositObject = await this.prismaService.deposit.findUnique({
-  //       where: {
-  //         publicId: code,
-  //       },
-  //     });
-  //   } while (depositObject !== null);
-  //   return code;
-  // }
-
-  async createInvoice(_userId: number, input: CreateInvoiceDTO) {
+  async createCompany(input: CreateCompanyDTO) {
     // const user = await this.prismaService.user.findFirstOrThrow({
     //   where: {
     //     id: _userId,
     //   },
     // });
-    const createdInvoice = await this.prismaService.invoice.create({
+
+    const createdCompany = await this.prismaService.company.create({
       data: {
-        status: INVOICE_STATUS.DRAFT,
-        description: input.description,
-        companyId: 1,
-        currency: 'EUR',
-        rows: {
-          createMany: {
-            data: input.rows.map((row) => {
-              return {
-                description: row.description,
-                amount: row.amount,
-                pricePerUnit: row.pricePerUnit,
-              };
-            }),
-          },
-        },
+        name: input.name,
+        type: input.type,
       },
       select: {
         id: true,
-        rows: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
-    // await this.emailService.sendTemplatedEmail(
-    //   user.email,
-    //   new DepositConfirmTemplate({
-    //     mediaUrl: `${process.env.FRONT_OFFICE_BASE_URL}/images/emails`,
-    //     antiPhishingCode: user.antiPhishingCode!,
-    //     date: moment(),
-    //   }),
-    // );
+
+    console.log('AAA');
+    const customer = await this.saltEdgeService.createCustomer(
+      `${createdCompany.id}`,
+    );
+    console.log('BBB');
+
+    const updated = await this.prismaService.company.update({
+      where: {
+        id: createdCompany.id,
+      },
+      data: {
+        externalBankDataProviderId: customer.externalId,
+      },
+      select: {
+        id: true,
+      },
+    });
 
     return {
-      invoiceId: createdInvoice.id,
-      rows: createdInvoice.rows.map((row) => row.id),
+      companyId: updated.id,
     };
   }
 

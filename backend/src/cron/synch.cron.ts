@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
+import { Company } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma.service';
+import { NonNullableObject } from '@utils/types';
 import { SyncTransactionService } from 'src/services/syncTransaction.service';
 
 @Injectable()
@@ -13,13 +15,22 @@ export class SynchCron {
   @Cron(CronExpression.EVERY_DAY_AT_4AM)
   async syncBanks() {
     const companies = await this.prismaService.company.findMany({
+      where: {
+        NOT: [{ externalBankDataProviderId: null }],
+      },
       select: {
         id: true,
         externalBankDataProviderId: true,
       },
     });
     await Promise.all(
-      companies.map((company) => this.syncTransactionService.syncBank(company)),
+      companies.map((company) =>
+        this.syncTransactionService.syncBank(
+          company as NonNullableObject<
+            Pick<Company, 'id' | 'externalBankDataProviderId'>
+          >,
+        ),
+      ),
     );
   }
 

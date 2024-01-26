@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Bank, BankAccount, Company } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma.service';
+import { NonNullableObject } from '@utils/types';
 import { SaltEdgeService } from './saltEdge.service';
 
 @Injectable()
@@ -10,7 +11,11 @@ export class SyncTransactionService {
     private bankDataProviderService: SaltEdgeService,
   ) {}
 
-  async syncBank(company: Pick<Company, 'id' | 'externalBankDataProviderId'>) {
+  async syncBank(
+    company: NonNullableObject<
+      Pick<Company, 'id' | 'externalBankDataProviderId'>
+    >,
+  ) {
     const banks = await this.bankDataProviderService.getConnections(
       company.externalBankDataProviderId,
     );
@@ -68,7 +73,7 @@ export class SyncTransactionService {
     bank: Required<Pick<Bank, 'id' | 'externalId'>>,
     bankAccount: Required<Pick<BankAccount, 'id' | 'externalId'>>,
   ) {
-    const lastTransaction = await this.prismaService.transactions.findFirst({
+    const lastTransaction = await this.prismaService.transaction.findFirst({
       where: { companyId, bankAccountId: bankAccount.id },
       select: { id: true, externalId: true },
       orderBy: {
@@ -83,7 +88,7 @@ export class SyncTransactionService {
       },
     );
 
-    this.prismaService.transactions.createMany({
+    this.prismaService.transaction.createMany({
       data: transactions.map((tx) => {
         return {
           ...tx,

@@ -25,3 +25,11 @@ export type IBank = {
   providerCode: string;
   providerName: string;
 };
+
+export type ICustomer = {
+  externalId: string;
+  identifier: string;
+  secret: string;
+  externalCreatedAt: Date;
+  externalUpdatedAt: Date;
+};

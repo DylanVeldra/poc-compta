@@ -13,7 +13,7 @@ import {
 import { Transform, Type } from 'class-transformer';
 import { toNumber } from '@utils/functions/toNumber';
 import { PaginationIgnoreDto } from '@utils/pipes/pagination';
-import { InvoiceStatus } from '@prisma/client';
+import { INVOICE_STATUS } from '@prisma/client';
 
 export class InvoiceRowDTO {
   @ApiProperty({
@@ -74,7 +74,7 @@ export class GetInvoicesQueryDto extends PaginationIgnoreDto {
   @IsOptional()
   readonly userId?: number;
 
-  @IsEnum(InvoiceStatus)
+  @IsEnum(INVOICE_STATUS)
   @IsOptional()
-  readonly status?: InvoiceStatus;
+  readonly status?: INVOICE_STATUS;
 }

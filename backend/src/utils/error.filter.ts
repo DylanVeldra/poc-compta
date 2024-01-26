@@ -18,6 +18,8 @@ export class AllExceptionsFilter implements ExceptionFilter {
   catch(exception: any, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
 
+    console.error(exception);
+
     // Handle prisma exceptions
     if (exception instanceof PrismaClientKnownRequestError) {
       const e = exception as PrismaClientKnownRequestError;

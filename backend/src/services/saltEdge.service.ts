@@ -1,7 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { TRANSACTION_MODE } from '@prisma/client';
-import { Axios } from 'axios';
-import { IBank, IBankAccount, ITransaction } from 'src/types/BankData.type';
+import Axios, { AxiosInstance } from 'axios';
+import {
+  IBank,
+  IBankAccount,
+  ICustomer,
+  ITransaction,
+} from 'src/types/BankData.type';
 import {
   SaltEdgeAccount,
   SaltEdgeConnection,
@@ -13,30 +18,57 @@ import {
 
 @Injectable()
 export class SaltEdgeService {
-  private axios: Axios;
+  private axios: AxiosInstance;
 
   constructor() {
     /**
      * @TODO implemant saltedge's pagination automatically
      */
-    this.axios = new Axios({
+    this.axios = Axios.create({
       baseURL: 'https://www.saltedge.com/api/v5',
       headers: {
         'App-id': process.env['SALT_EDGE_APP_ID'],
         Secret: process.env['SALT_EDGE_SECRET'],
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
     });
+  }
+
+  async createCustomer(identifier: string): Promise<ICustomer> {
+    const response = await this.axios.post<SaltEdgeResponse<SaltEdgeCustomer>>(
+      '/customers',
+      {
+        data: {
+          identifier,
+        },
+      },
+    );
+    return this.transformCustomer(response.data.data);
   }
 
   /**
    * A customer is a customer is a company.
    * Its can have multiple connection which are banks.
    */
-  async getCustomers(): Promise<SaltEdgeCustomer[]> {
+  async getCustomers(): Promise<ICustomer[]> {
     const response =
       await this.axios.get<SaltEdgeResponse<SaltEdgeCustomer[]>>('/customers');
 
-    return response.data.data;
+    return response.data.data.map(this.transformCustomer);
+  }
+
+  /**
+   * @TODO use Zod to type check and safe it
+   */
+  private transformCustomer(inputCustomer: SaltEdgeCustomer): ICustomer {
+    return {
+      externalId: inputCustomer.id,
+      identifier: inputCustomer.identifier,
+      secret: inputCustomer.secret,
+      externalCreatedAt: new Date(inputCustomer.created_at),
+      externalUpdatedAt: new Date(inputCustomer.updated_at),
+    };
   }
 
   /**
