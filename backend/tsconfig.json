@@ -14,13 +14,18 @@
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
-    "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@prisma/*": ["./src/prisma/*"],
       "@utils/*": ["./src/utils/*"],
+      "@auth/*": ["./src/auth/*"],
+      "@config/*": ["./src/config/*"],
+      "@users/*": ["./src/users/*"],
+      "@email/*": ["./src/email/*"],
+      "@email-generator/email-generator": ["libs/email-generator/src"],
+      "@email-generator/email-generator/*": ["libs/email-generator/src/*"],
     }
   }
 }

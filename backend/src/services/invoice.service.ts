@@ -43,6 +43,7 @@ export class InvoiceService {
                 description: row.description,
                 amount: row.amount,
                 pricePerUnit: row.pricePerUnit,
+                vat: 0, // todo
               };
             }),
           },
@@ -74,7 +75,6 @@ export class InvoiceService {
 
   // , _user?: UserPayloadDto
   async getInvoiceById(invoiceId: number) {
-    console.log(invoiceId);
     const request = { id: invoiceId };
     // if (user.role !== UserRole.ADMIN) {
     //   request['emitterId'] = user.id;

@@ -1,0 +1,5 @@
+<mj-attributes>
+  <mj-class name="white-section" background-color="white" />
+  <mj-class name="dark-section" background-color="#222730" />
+</mj-attributes>
+<mj-include path="./styles.css" type="css" />

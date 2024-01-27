@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, Length } from 'class-validator';
+import { IsOptional, IsString, Length } from 'class-validator';
 
 export class CreateCompanyDTO {
   @ApiProperty({
@@ -15,4 +15,20 @@ export class CreateCompanyDTO {
   @IsString()
   @Length(0, 256)
   readonly type: string;
+
+  @ApiProperty({
+    description: 'registryId of the company',
+  })
+  @IsString()
+  @Length(0, 256)
+  readonly registryId: string;
+
+  @ApiProperty({
+    description:
+      'vatId of the company, could be null if the company is freshly created and still not have vatId',
+  })
+  @IsString()
+  @IsOptional()
+  @Length(0, 256)
+  readonly vatId?: string;
 }

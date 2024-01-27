@@ -1,0 +1,13 @@
+<mj-section mj-class="dark-section" padding="0">
+  <mj-column>
+  <mj-text padding="0" padding-top="30px" color="white" align="center" font-family="sans-serif" font-weight="333" font-size="13px">
+      Votre code anti-hameçonnage est le suivant : <span style="color:#C4AB61">{{ antiPhishingCode }}</span>.
+    </mj-text>
+    <mj-text padding="0" padding-top="5px" color="white" align="center" font-family="sans-serif" font-weight="333" font-size="13px">
+      Pensez à vérifier s'il correspond bien à celui communiqué sur votre compte dans l'onglet Profil.
+    </mj-text>
+    <mj-text line-height="150%" font-family="sans-serif" font-size="15px" font-weight="333" padding-top="30px" padding-bottom="34px" color="white" align="center">
+      <a style="color: white; text-decoration: none" href="https://eovo.capital"><u>Mentions légales</u></a>
+    </mj-text>
+  </mj-column>
+</mj-section>

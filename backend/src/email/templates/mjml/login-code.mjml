@@ -1,0 +1,65 @@
+<mjml lang="fr">
+  <mj-head>
+    <mj-title>Nouvelle connexion à EOVO</mj-title>
+    <mj-preview>Votre code est {{ code }}</mj-preview>
+    <mj-include path="./components/head.mjml" />
+  </mj-head>
+  <mj-body background-color="#F2F2F2">
+    <mj-include path="./components/header.mjml" />
+    <mj-wrapper padding="0">
+      <mj-section mj-class="white-section" padding-top="0">
+        <mj-column width="400px">
+          <mj-include path="./components/money.mjml" />
+          <mj-text font-family="sans-serif" padding-top="30px" padding-bottom="0" color="#222730" align="center" font-size="30px" font-weight="500">
+            Connexion à EOVO
+          </mj-text>
+        </mj-column>
+        <mj-column width="562px" >
+          <mj-text padding-top="25px" padding-bottom="55px" align="center" font-family="sans-serif" font-size="20px" line-height="25px" font-weight="00">
+            Utilisez le code de vérification ci-dessous pour vous connecter à votre compte EOVO.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      </mj-wrapper>
+      <mj-include path="./components/email-code.mjml" />
+      <mj-wrapper padding="0">
+        <mj-section mj-class="white-section" padding="0">
+          <mj-column padding="0">
+            <mj-text padding-top="4px" padding-bottom="0" color="#222730" align="center" font-family="sans-serif" font-weight="333" font-size="15px" line-height="150%"
+              >Ce code est valide 30 minutes.</mj-text
+            >
+            <mj-text padding-top="54px" padding-bottom="60px" color="#222730" align="center" font-family="sans-serif" font-weight="333" font-size="15px" line-height="150%"
+              >Pour renforcer la sécurité de votre compte EOVO, un code de vérification est demandé pour toute connexion.</mj-text
+            >
+            <mj-divider padding="0" border-width="1px" border-color="#828693" padding-left="0" padding-right="0" />
+          </mj-column>
+        </mj-section>
+      </mj-wrapper>
+      <mj-wrapper padding="0" mj-class="white-section">
+          <mj-section padding="0" padding-top="40px">
+            <mj-column width="567px" background-color="#E5E5E5">
+              <mj-text padding-top="16px" align="center" font-family="sans-serif" font-weight="333" font-size="15px" line-height="150%">Votre identifiant EOVO (<b>{{ email }}</b>) a été utilisé lors d'une connexion à partir d'un navigateur web.</mj-text>
+            </mj-column>
+            <mj-column background-color="#E5E5E5" width="567px" padding-left="27%">
+              <mj-text padding="0" padding-top="5px" padding-bottom="4px" font-family="sans-serif" font-weight="333" font-size="15px" line-height="150%">
+                <b>Date et heure : </b>{{ day }} à {{ hour }} ({{ timezone }})
+              </mj-text>
+              <mj-text padding="0" padding-bottom="4px" font-family="sans-serif" font-weight="333" font-size="15px" line-height="150%">
+                <b>IP : </b>{{ ip }}
+              </mj-text>
+              <mj-text padding="0" padding-bottom="24px" font-family="sans-serif" font-weight="333" font-size="15px" line-height="150%">
+                <b>Appareil : </b>{{ device }}
+              </mj-text>
+            </mj-column>
+          </mj-section>
+        </mj-wrapper>
+      <mj-section mj-class="white-section" padding="0">
+        <mj-column padding="0">
+          <mj-text padding-top="24px" padding-bottom="30px" align="center" color="#9FA1A6" font-family="sans-serif" font-weight="333" font-size="15px" line-height="150%">
+            Si vous n'êtes pas à l'origine de cette connexion, veuillez <a style="color: #C4AB61" href="https://eovo.capital/forgot-password">modifier votre mot de passe</a> et <a style="color: #C4AB61" href="mailto:support@eovo.group">contacter le support.</a>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    <mj-include path="./components/footer.mjml" />
+  </mj-body>
+</mjml>

@@ -45,11 +45,13 @@ model User {
   status                     USER_STATUS @default(value: REGISTRATION_IN_PROGRESS)
   antiPhishingCode           String?
   antiPhishingCodeExpiration DateTime    @default(now())
+  defaultCompany             Int         @default(0)
 
   // Virtuals fields
   currentEmailVerification    EmailVerificationCode?        @relation(fields: [currentEmailVerificationId], references: [id])
   passwordVerificationRequest PasswordVerificationRequest[]
   tags                        TagsOnUsers[]
+  companies                   UsersOnCompanies[]
 }
 
 enum EMAIL_VERIFICATION_STATUS {
@@ -100,6 +102,15 @@ model TagsOnUsers {
   @@id([tagId, userId])
 }
 
+model UsersOnCompanies {
+  user      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  company   Company @relation(fields: [companyId], references: [id])
+  companyId Int
+
+  @@id([userId, companyId])
+}
+
 enum INVOICE_STATUS {
   DRAFT
   UNPAID
@@ -116,6 +127,7 @@ model InvoiceRow {
   // In Cent
   pricePerUnit Int
   invoiceId    Int
+  vat          Float
 
   // Virtuals fields
   Invoice Invoice @relation(fields: [invoiceId], references: [id])
@@ -127,6 +139,7 @@ model Invoice {
   updatedAt DateTime @updatedAt
 
   status         INVOICE_STATUS
+  // id like 000001 unique for each company
   comptabilityId Int?
   validatedAt    DateTime?
   description    String
@@ -160,14 +173,18 @@ model Company {
 
   externalBankDataProviderId String?
 
-  name String
-  type String
+  name       String
+  type       String
+  registryId String
+  vatId      String?
 
   // Virtuals fields
   transactions Transaction[]
   bankAccount  BankAccount[]
   bank         Bank[]
   invoice      Invoice[]
+  Customer     Customer[]
+  users        UsersOnCompanies[]
 }
 
 enum TRANSACTION_MODE {
@@ -274,4 +291,24 @@ model ExpenseDocument {
 
   // Virtuals fields
   expenseJustification ExpenseJustification @relation(fields: [expenseJustificationId], references: [id])
+}
+
+model Customer {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name       String
+  street     String
+  postalCode String
+  city       String
+  country    String
+  isCompany  Boolean
+  vatId      String?
+  registryId String?
+
+  companyId Int
+
+  // Virtuals fields
+  company Company @relation(fields: [companyId], references: [id])
 }

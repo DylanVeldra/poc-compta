@@ -1,7 +1,7 @@
 // import React from 'react';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import ReactPDF from '@react-pdf/renderer';
-import { Stream } from 'stream';
+import { Invoice } from '@prisma/client';
 
 // Create styles
 const styles = StyleSheet.create({
@@ -40,7 +40,7 @@ async function stream2buffer(stream: NodeJS.ReadableStream): Promise<Buffer> {
   });
 }
 
-export const generateInvoice = async () => {
+export const generateInvoice = async (invoice: Invoice) => {
   const toto = await ReactPDF.renderToStream(<MyDocument />);
 
   return stream2buffer(toto);

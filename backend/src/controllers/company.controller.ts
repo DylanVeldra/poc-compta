@@ -18,7 +18,7 @@ export class CompanyController {
   }
 
   /**
-   * implem pagination
+   * @TODO implem pagination
    */
   @Get('')
   async getCompanies() {

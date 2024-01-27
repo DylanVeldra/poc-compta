@@ -1,0 +1,7 @@
+<mj-wrapper padding="0" mj-class="white-section">
+  <mj-section padding="0">
+    <mj-column css-class="code-container" padding-top="7px" padding-bottom="8px" width="221px">
+      <mj-text padding="0" align="center" color="#222730" font-size="30px" font-weight="700" line-height="35px" font-family="Arial">{{ code }}</mj-text>
+    </mj-column>
+  </mj-section>
+</mj-wrapper>

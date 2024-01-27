@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
   Query,
+  StreamableFile,
 } from '@nestjs/common';
 import { INVOICE_STATUS } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma.service';
@@ -148,18 +149,31 @@ export class InvoiceController {
     });
   }
 
-  @Get('test/toto')
-  async test() {
-    const pdf = await generateInvoice();
+  @Get('test/toto/:id')
+  async test(@Param() id: number) {
+    const invoice = await this.prismaService.invoice.findUnique({
+      where: {
+        id,
+        companyId: 1,
+      },
+    });
+
+    if (!invoice) {
+      return;
+    }
+
+    const pdf = await generateInvoice(invoice);
 
     /**
      * @TODO move this to an upload service
      */
-    const response = await put('invoice.pdf', pdf, {
-      access: 'public',
-      token: process.env.EXPENSE_DOCUMENT_BLOB_READ_WRITE_TOKEN,
-    });
+    // const response = await put('invoice.pdf', pdf, {
+    //   access: 'public',
+    //   token: process.env.EXPENSE_DOCUMENT_BLOB_READ_WRITE_TOKEN,
+    // });
 
-    console.log(response);
+    // console.log(response);
+    // const file = createReadStream(join(process.cwd(), 'package.json'));
+    return new StreamableFile(pdf);
   }
 }

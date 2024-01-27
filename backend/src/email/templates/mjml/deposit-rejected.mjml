@@ -1,0 +1,40 @@
+<mjml lang="fr">
+  <mj-head>
+    <mj-title>Refus de votre demande de dépôt</mj-title>
+    <mj-include path="./components/head.mjml" />
+  </mj-head>
+  <mj-body background-color="#F2F2F2">
+    <mj-include path="./components/header.mjml" />
+    <mj-section mj-class="white-section" padding="0">
+      <mj-column width="463px">
+        <mj-include path="./components/sad.mjml" />
+        <mj-text font-family="sans-serif" padding="0" padding-top="57px" color="#222730" align="center" font-size="30px" font-weight="500" line-height="38px">
+          Votre dépôt a été refusé
+        </mj-text>
+      </mj-column>
+      <mj-column width="566px">
+        <mj-text font-family="sans-serif" padding="10px" padding-top="56px" padding-bottom="18px" color="#222730" font-size="15px" font-weight="333" line-height="150%">
+          Votre demande de dépôt du {{ day }} vient d'être refusé par l'administrateur pour la raison suivante :
+        </mj-text>
+        <mj-text font-family="sans-serif" padding="0" padding-top="7px" padding-left="30px" color="#222730" font-size="15px" font-weight="333" line-height="150%">
+          • {{ reason }}
+        </mj-text>
+        <mj-text font-family="sans-serif" padding="10px" padding-top="30px" color="#222730" font-size="15px" font-weight="333" line-height="150%">
+          Vous pouvez dès à présent demander un nouveau dépôt sur votre compte EOVO.
+        </mj-text>
+        <mj-button href="https://eovo.capital/deposit" width="274px" height="48px" padding="0" padding-top="80px" padding-bottom="127px" border-radius="3px" font-family="sans-serif" font-weight="500" font-size="16px" line-height="20px" background-color="#C4AB61" color="white">
+          Demander un dépôt
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section mj-class="white-section" padding="0">
+      <mj-column>
+        <mj-divider padding="0" border-width="1px" border-color="#828693" padding-left="0" padding-right="0" />
+        <mj-text padding="0" padding-top="30px" padding-bottom="30px" align="center" color="#9FA1A6" font-family="sans-serif" font-weight="333" font-size="15px" line-height="150%">
+        Pour toute question concernant ce refus, n'hésitez pas à <a style="color: #C4AB61" href="mailto:support@eovo.group">contacter le support.</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-include path="./components/footer.mjml" />
+  </mj-body>
+</mjml>

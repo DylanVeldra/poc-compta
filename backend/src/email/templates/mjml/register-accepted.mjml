@@ -1,0 +1,37 @@
+<mjml lang="fr">
+  <mj-head>
+    <mj-title>Bienvenue chez EOVO !</mj-title>
+    <mj-include path="./components/head.mjml" />
+  </mj-head>
+  <mj-body background-color="#F2F2F2">
+    <mj-include path="./components/header.mjml" />
+    <mj-section mj-class="white-section" padding="0">
+      <mj-column width="463px">
+      <mj-include path="./components/money.mjml" />
+        <mj-text font-family="sans-serif" padding="0" padding-top="40px" color="#222730" align="center" font-size="30px" font-weight="500" line-height="38px">
+          Votre compte EOVO a bien été validé !
+        </mj-text>
+      </mj-column>
+      <mj-column width="566px">
+        <mj-text font-family="sans-serif" padding="10px" padding-top="40px" color="#222730" font-size="15px" font-weight="333" line-height="150%">
+          Suite à votre inscription du {{ day }}, nous vous confirmons que votre compte a bien été validé par l'administrateur.
+        </mj-text>
+        <mj-text font-family="sans-serif" padding="10px" padding-top="25px" color="#222730" font-size="15px" font-weight="333" line-height="150%">
+          Vous pouvez dès à présent accéder à votre compte en utilisant l'email et le mot de passe renseigné lors de votre inscription et notifier votre premier dépôt.
+        </mj-text>
+        <mj-button href="https://eovo.capital/dashboard" width="274px" height="48px" padding="0" padding-top="50px" padding-bottom="59px" border-radius="3px" font-family="sans-serif" font-weight="500" font-size="16px" line-height="20px" background-color="#C4AB61" color="white">
+          Accéder à mon tableau de bord
+        </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section mj-class="white-section" padding="0">
+      <mj-column>
+        <mj-divider padding="0" border-width="1px" border-color="#828693" padding-left="0" padding-right="0" />
+        <mj-text padding="0" padding-top="30px" padding-bottom="30px" align="center" color="#9FA1A6" font-family="sans-serif" font-weight="333" font-size="15px" line-height="150%">
+        Pour toute question, n'hésitez pas à <a style="color: #C4AB61" href="mailto:support@eovo.group">contacter le support.</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-include path="./components/footer.mjml" />
+  </mj-body>
+</mjml>

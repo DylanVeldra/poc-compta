@@ -1,0 +1,33 @@
+<mjml lang="fr">
+  <mj-head>
+    <mj-title>Votre notification de dépôt en attente de validation</mj-title>
+    <mj-include path="./components/head.mjml" />
+  </mj-head>
+  <mj-body background-color="#F2F2F2">
+    <mj-include path="./components/header.mjml" />
+    <mj-section mj-class="white-section" padding="0">
+      <mj-column width="463px">
+        <mj-text font-family="sans-serif" padding="0" padding-top="57px" color="#222730" align="center" font-size="30px" font-weight="500" line-height="38px">
+          Nous avons bien reçu votre notification de dépôt
+        </mj-text>
+      </mj-column>
+      <mj-column width="566px">
+        <mj-text font-family="sans-serif" padding="10px" padding-top="56px" color="#222730" font-size="15px" font-weight="333" line-height="150%">
+          Votre demande de dépôt du {{ day }} à {{ hour }} a bien été prise en compte. Celle ci va être traitée par l'administrateur dans les meilleurs délais.
+        </mj-text>
+        <mj-text font-family="sans-serif" padding="10px" padding-top="30px" color="#222730" font-size="15px" font-weight="333" line-height="150%">
+          Vous recevrez très prochainement une confirmation par email dès que votre demande aura été traitée.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section mj-class="white-section" padding="0">
+      <mj-column>
+        <mj-divider padding="0" padding-top="68px" border-width="1px" border-color="#828693" padding-left="0" padding-right="0" />
+        <mj-text padding="0" padding-top="30px" padding-bottom="30px" align="center" color="#9FA1A6" font-family="sans-serif" font-weight="333" font-size="15px" line-height="150%">
+        Pour toute question, n'hésitez pas à <a style="color: #C4AB61" href="mailto:support@eovo.group">contacter le support.</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-include path="./components/footer.mjml" />
+  </mj-body>
+</mjml>
