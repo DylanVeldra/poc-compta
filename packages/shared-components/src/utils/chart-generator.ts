@@ -25,9 +25,9 @@ import {
   Tooltip,
   SubTitle,
   ChartItem,
-} from 'chart.js';
-import 'chartjs-adapter-luxon';
-import { DateTime } from 'luxon';
+} from "chart.js"
+import "chartjs-adapter-luxon"
+import { DateTime } from "luxon"
 
 Chart.register(
   ArcElement,
@@ -53,27 +53,27 @@ Chart.register(
   Legend,
   Title,
   Tooltip,
-  SubTitle,
-);
+  SubTitle
+)
 
 interface DataProps {
-  labels: DateTime[];
-  datasets: Array<object>;
+  labels: DateTime[]
+  datasets: Array<object>
 }
 
 export class ChartGenerator {
-  type: string | any;
-  data: DataProps;
-  options: object;
+  type: string | any
+  data: DataProps
+  options: object
 
   constructor(
-    type = 'line',
+    type = "line",
     data = { labels: [] as DateTime[], datasets: [{}] },
-    options = {},
+    options = {}
   ) {
-    this.type = type;
-    this.data = data;
-    this.options = options;
+    this.type = type
+    this.data = data
+    this.options = options
   }
 
   generatePerformanceMonthlyChart(ctx: ChartItem) {
@@ -87,26 +87,26 @@ export class ChartGenerator {
             if (chart.tooltip?._active?.length) {
               let x =
                 chart.tooltip._active[chart.tooltip._active.length - 1].element
-                  .x;
+                  .x
               let y =
                 chart.tooltip._active[chart.tooltip._active.length - 1].element
-                  .y;
-              let yAxis = chart.scales.y;
-              let ctx = chart.ctx;
-              ctx.save();
-              ctx.beginPath();
+                  .y
+              let yAxis = chart.scales.y
+              let ctx = chart.ctx
+              ctx.save()
+              ctx.beginPath()
 
-              ctx.moveTo(x, y);
-              ctx.lineTo(x, yAxis.bottom);
+              ctx.moveTo(x, y)
+              ctx.lineTo(x, yAxis.bottom)
 
-              ctx.lineWidth = 2;
-              ctx.strokeStyle = '#C4AB61';
-              ctx.stroke();
-              ctx.restore();
+              ctx.lineWidth = 2
+              ctx.strokeStyle = "#C4AB61"
+              ctx.stroke()
+              ctx.restore()
             }
           },
         } as any,
       ],
-    });
+    })
   }
 }

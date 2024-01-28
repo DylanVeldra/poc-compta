@@ -24,18 +24,26 @@ export class InvoiceService {
   //   return code;
   // }
 
-  async createInvoice(_userId: number, input: CreateInvoiceDTO) {
+  async createInvoice(
+    input: CreateInvoiceDTO,
+    _userId: number,
+    companyId: number,
+  ) {
     // const user = await this.prismaService.user.findFirstOrThrow({
     //   where: {
     //     id: _userId,
     //   },
     // });
+
+    // todo vérifier le customerId
+
     const createdInvoice = await this.prismaService.invoice.create({
       data: {
         status: INVOICE_STATUS.DRAFT,
         description: input.description,
-        companyId: 1,
+        companyId,
         currency: 'EUR',
+        customerId: input.customerId,
         rows: {
           createMany: {
             data: input.rows.map((row) => {

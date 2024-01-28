@@ -1,5 +1,8 @@
+import { AuthModule } from '@auth/auth.module';
+import { EmailModule } from '@email/email.module';
 import { Module } from '@nestjs/common';
 import { ScheduleModule } from '@nestjs/schedule';
+import { UserModule } from '@users/user.module';
 import { CompanyController } from './controllers/company.controller';
 import { ExpenseController } from './controllers/expense.controller';
 import { InvoiceController } from './controllers/invoice.controller';
@@ -12,7 +15,13 @@ import { SaltEdgeService } from './services/saltEdge.service';
 import { SyncTransactionService } from './services/syncTransaction.service';
 
 @Module({
-  imports: [PrismaModule, ScheduleModule.forRoot()],
+  imports: [
+    PrismaModule,
+    UserModule,
+    AuthModule,
+    EmailModule,
+    ScheduleModule.forRoot(),
+  ],
   controllers: [
     ExpenseController,
     InvoiceController,

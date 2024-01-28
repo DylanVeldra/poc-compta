@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Inject,
   Param,
   ParseIntPipe,
   Patch,
@@ -9,10 +10,12 @@ import {
   Query,
   StreamableFile,
 } from '@nestjs/common';
+import { REQUEST } from '@nestjs/core';
 import { INVOICE_STATUS } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma.service';
 import { I18NException } from '@utils/exception';
 import { Pagination, PaginationDto } from '@utils/pipes/pagination';
+import { RequestContext } from '@utils/types';
 import { put } from '@vercel/blob';
 import { CreateInvoiceDTO, GetInvoicesQueryDto } from 'src/dto/invoice.dto';
 import { generateInvoice } from 'src/services/invoice-pdf.service';
@@ -22,13 +25,18 @@ import { InvoiceService } from 'src/services/invoice.service';
 @Controller('invoices')
 export class InvoiceController {
   constructor(
+    @Inject(REQUEST) private readonly requestContext: RequestContext,
     private readonly prismaService: PrismaService,
     private readonly invoiceService: InvoiceService,
   ) {}
 
   @Post()
   async createDraftInvoice(@Body() invoiceToCreate: CreateInvoiceDTO) {
-    return this.invoiceService.createInvoice(42, invoiceToCreate);
+    return this.invoiceService.createInvoice(
+      invoiceToCreate,
+      this.requestContext.context.user.id,
+      this.requestContext.context.companyId,
+    );
   }
 
   @Get()

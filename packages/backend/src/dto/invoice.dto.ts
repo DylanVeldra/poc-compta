@@ -51,6 +51,12 @@ export class CreateInvoiceDTO {
   readonly description: string = '';
 
   @ApiProperty({
+    description: 'The customer id that will pay the invoice',
+  })
+  @IsNumber()
+  readonly customerId: number;
+
+  @ApiProperty({
     description: 'Rows of the invoice',
   })
   @ValidateNested({ each: true })

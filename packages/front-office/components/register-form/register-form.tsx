@@ -13,7 +13,7 @@ import { useLanguageDictionary } from "@shared-hooks";
 
 // Yup Validation helper
 import { signUpValidation } from "@shared-utils/validation";
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 
@@ -45,6 +45,8 @@ export default function RegisterForm(props: RegisterFormProps) {
   const onSubmitHandler = () => {
     const values = getValues();
 
+    console.log('AAAAA')
+
     const {
       email,
       password,
@@ -52,8 +54,6 @@ export default function RegisterForm(props: RegisterFormProps) {
       lastname,
       prefix,
       phoneNumber,
-      taxResidenceCountry,
-      telegramAccount,
       optIn,
       termsOfService,
     } = getValues();
@@ -70,8 +70,6 @@ export default function RegisterForm(props: RegisterFormProps) {
       lastname,
       phoneNumber: prefix + phoneNumber,
       birthDate,
-      taxResidenceCountry,
-      telegramAccount,
       optIn,
       termsOfService,
     });
@@ -98,6 +96,8 @@ export default function RegisterForm(props: RegisterFormProps) {
       props.showToastErrorMessage(dict.i18nServerErrors.required);
     }
   }, [errors]);
+
+  console.log('XXXX')
 
   return (
     <Form
@@ -141,18 +141,6 @@ export default function RegisterForm(props: RegisterFormProps) {
           updateForm={(name, value) => updateForm(name, value)}
           errors={errors}
         />
-        <CountryList
-          marginTop={0}
-          label={dict.registerFields.country}
-          values={{ taxResidenceCountry: getValues().taxResidenceCountry }}
-          updateForm={(name, value) => updateForm(name, value)}
-          errors={errors}
-        />
-      </InputContainer>
-      <InputContainer
-        noMargin={true}
-        className="grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-[40px] mb-[40px]"
-      >
         <PhoneInput
           label={dict.registerFields.phoneNumber}
           name="phoneNumber"
@@ -160,16 +148,6 @@ export default function RegisterForm(props: RegisterFormProps) {
           errors={errors}
           register={register}
           trigger={trigger}
-        />
-        <ReactHookInput
-          label={dict.registerFields.telegram}
-          placeholder={dict.registerFields.telegram}
-          name="telegramAccount"
-          updateForm={(name, value) => updateForm(name, value)}
-          register={register}
-          required={false}
-          errors={errors}
-          errorIcon={errors.telegramAccount ? true : false}
         />
       </InputContainer>
       <InputContainer noMargin={true} className="grid-cols-1 gap-6 mb-[40px]">

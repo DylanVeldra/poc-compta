@@ -34,8 +34,7 @@ export default function Register() {
   };
 
   const onSubmit = (user: RegisterCredentials) => {
-    if (!user.telegramAccount) delete user.telegramAccount;
-
+    console.log('AAAAA')
     fetchJSON("/auth/register", "POST", user)
       .then(() => {
         fetchJSON("/auth/login", "POST", user).then((res) => {
