@@ -17,7 +17,7 @@ export default function Enable2Fa() {
   const [isRegistrationComplete, setIsRegistrationComplete] = useState(false);
   const router = useRouter();
   const dict = useLanguageDictionary();
-  const [user, isLoading] = useProfile();
+  const {user, isLoading} = useProfile();
   const [isCodeValid, setIsCodeValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 

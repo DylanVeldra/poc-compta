@@ -16,7 +16,7 @@ import { useState } from "react";
 
 export default function Home() {
   const dict = useLanguageDictionary();
-  const [user, isLoading] = useProfile(false);
+  const {user, isLoading} = useProfile(false);
   const router = useRouter();
   const [showLogoutModal, setShowLogoutModal] = useState(!!router.query.logout);
 

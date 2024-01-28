@@ -13,6 +13,8 @@ export type UserInContext = {
 };
 
 export type AccessToken = {
+  exp: number;
+  iat: number;
   tokenType: TokenType;
   twoFactorLogged: boolean;
   emailLogged: boolean;
@@ -22,6 +24,8 @@ export type AccessToken = {
 };
 
 export type RefreshToken = {
+  exp: number;
+  iat: number;
   tokenType: TokenType;
   twoFactorLogged: boolean;
   emailLogged: boolean;

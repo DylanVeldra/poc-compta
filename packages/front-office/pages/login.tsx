@@ -12,18 +12,18 @@ import {
   Modal,
 } from "@shared-components/modals";
 import {
-  User,
   Credentials,
   CredentialsWithAuthenticationCodes,
 } from "@shared-types";
 import { ToastGenerator } from "@shared-components/toast-generator";
 import { Button } from "@shared-components/buttons";
+import { AccessToken } from "../../shared-components/src/types/user/token";
 
 export default function Login() {
   const toastRef = useRef<any>();
   const dict = useLanguageDictionary();
   const router = useRouter();
-  const [user, isLoading] = useProfile(false);
+  const {user, isLoading} = useProfile(false);
   const [showModal, setShowModal] = useState(false);
   const [showBannedModal, setShowBannedModal] = useState(false);
   const [showRegistrationInProgressModal, setShowRegistrationInProgressModal] =
@@ -45,24 +45,24 @@ export default function Login() {
         sessionStorage.setItem("access_token", json.body.access_token);
         sessionStorage.setItem("refresh_token", json.body.refresh_token);
 
-        const user = jwt_decode(json.body.access_token) as User;
+        const dataAccessToken = jwt_decode(json.body.access_token) as AccessToken;
 
-        if (!user.emailVerified) {
+        if (!dataAccessToken.user.emailVerified) {
           router.push("/email-verification");
           return;
         }
 
-        if (!user.twoFactorVerified) {
+        if (!dataAccessToken.user.twoFactorVerified) {
           router.push("/enable-2fa");
           return;
         }
 
-        if (user.status === "BANNED") {
+        if (dataAccessToken.user.status === "BANNED") {
           setShowBannedModal(true);
           return;
         }
 
-        if (user.status === "REGISTRATION_IN_PROGRESS") {
+        if (dataAccessToken.user.status === "REGISTRATION_IN_PROGRESS") {
           setShowRegistrationInProgressModal(true);
           return;
         }

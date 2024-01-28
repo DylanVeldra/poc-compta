@@ -20,7 +20,7 @@ interface ModalProps {
 export const ChangeEmailModal = (props: ModalProps) => {
   const dict = useLanguageDictionary();
   const { locale } = useRouter();
-  const [user, isLoading] = useProfile(false);
+  const {user, isLoading} = useProfile(false);
   const [subtitle, setSubtitle] = useState('');
   const toastRef = useRef<any>();
 

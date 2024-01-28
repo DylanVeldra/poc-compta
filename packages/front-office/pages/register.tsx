@@ -16,7 +16,7 @@ export default function Register() {
   const router = useRouter();
   const toastRef = useRef<any>();
 
-  const [user, isLoading] = useProfile(false);
+  const {user, isLoading} = useProfile(false);
 
   useEffect(() => {
     if (!isLoading && user) {
@@ -34,7 +34,6 @@ export default function Register() {
   };
 
   const onSubmit = (user: RegisterCredentials) => {
-    console.log('AAAAA')
     fetchJSON("/auth/register", "POST", user)
       .then(() => {
         fetchJSON("/auth/login", "POST", user).then((res) => {

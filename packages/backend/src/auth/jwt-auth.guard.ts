@@ -35,12 +35,14 @@ export class JwtAuthGuard implements CanActivate {
     }
 
     const dataToken = verify(token, this.auth.jwtPublicKey, {
-      algorithms: ['RS512'],
+      algorithms: ['RS256'],
     }) as AccessToken;
 
     if (dataToken.tokenType !== TokenType.ACCESS) {
       throw new I18NException('INVALID_TOKEN_TYPE', 401, 'Invalid token type');
     }
+
+    console.log(dataToken);
 
     request.context = {
       twoFactorLogged: dataToken.twoFactorLogged,
@@ -49,6 +51,8 @@ export class JwtAuthGuard implements CanActivate {
       companyId: dataToken.companyId,
       reqIq: 'todo',
     };
+
+    console.log(request.context);
 
     return true;
   }

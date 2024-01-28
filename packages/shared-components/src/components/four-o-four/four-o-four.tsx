@@ -7,7 +7,7 @@ import { ProtectedPagesHeader } from "@shared-components/protected-pages-header"
 import { useLanguageDictionary, useProfile } from "@shared-hooks";
 
 export default function FourOFour() {
-  const [user, isLoading] = useProfile(false);
+  const {user, isLoading} = useProfile(false);
   const dict = useLanguageDictionary();
   const router = useRouter();
 

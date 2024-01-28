@@ -8,7 +8,6 @@ const originalRequest = async (
   token: string | null,
   body?: object
 ) => {
-  console.log("toto")
   const res = await fetch(`${BASE_URL}${url}`, {
     method,
     body: body ? JSON.stringify(body) : undefined,

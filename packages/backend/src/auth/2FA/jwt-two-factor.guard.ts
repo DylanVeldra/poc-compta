@@ -35,7 +35,7 @@ export class JwtTwoFactorGuard implements CanActivate {
     }
 
     const dataToken = verify(token, this.auth.jwtPublicKey, {
-      algorithms: ['RS512'],
+      algorithms: ['RS256'],
     }) as AccessToken;
 
     if (dataToken.tokenType !== TokenType.ACCESS) {

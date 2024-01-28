@@ -12,8 +12,8 @@ import { AccessToken, RefreshToken } from './dto/token.type';
 import { sign, verify } from 'jsonwebtoken';
 
 export enum TokenType {
-  ACCESS,
-  REFRESH,
+  ACCESS = 'ACCESS',
+  REFRESH = 'ACCESS',
 }
 
 @Injectable()
@@ -54,12 +54,12 @@ export class AuthService {
     }
 
     const dataAccessToken = verify(accesToken, this.config.jwtPublicKey, {
-      algorithms: ['RS512'],
+      algorithms: ['RS256'],
       ignoreExpiration: true,
     }) as AccessToken;
 
     const dataRefreshToken = verify(refreshToken, this.config.jwtPublicKey, {
-      algorithms: ['RS512'],
+      algorithms: ['RS256'],
     }) as RefreshToken;
     if (dataRefreshToken.tokenType != TokenType.REFRESH) {
       throw new I18NException(
@@ -114,19 +114,21 @@ export class AuthService {
         twoFactorLogged: payload.twoFactorLogged,
         emailLogged: payload.emailLogged,
         // User data
-        id: payload.user.id,
-        firstname: payload.user.firstname,
-        lastname: payload.user.lastname,
-        email: payload.user.email,
-        twoFactorVerified: payload.user.twoFactorVerified,
-        emailVerified: payload.user.emailVerified,
-        role: payload.user.role,
-        status: payload.user.status,
+        user: {
+          id: payload.user.id,
+          firstname: payload.user.firstname,
+          lastname: payload.user.lastname,
+          email: payload.user.email,
+          twoFactorVerified: payload.user.twoFactorVerified,
+          emailVerified: payload.user.emailVerified,
+          role: payload.user.role,
+          status: payload.user.status,
+        },
         companyId: payload.companyId,
       },
       this.config.jwtPrivateKey,
       {
-        algorithm: 'RS512',
+        algorithm: 'RS256',
         expiresIn: this.config.accessExpireIn,
       },
     );
@@ -152,13 +154,15 @@ export class AuthService {
         tokenType: TokenType.REFRESH,
         twoFactorLogged: payload.twoFactorLogged,
         emailLogged: payload.emailLogged,
-        id: payload.user.id,
-        role: payload.user.role,
-        status: payload.user.status,
+        user: {
+          id: payload.user.id,
+          role: payload.user.role,
+          status: payload.user.status,
+        },
       },
       this.config.jwtPrivateKey,
       {
-        algorithm: 'RS512',
+        algorithm: 'RS256',
         expiresIn: this.config.refreshExpiresIn,
       },
     );

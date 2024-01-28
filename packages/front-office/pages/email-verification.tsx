@@ -23,7 +23,7 @@ export default function EmailVerification() {
   const { locale } = useRouter();
   const dict = useLanguageDictionary() as any;
   const [isOpen, setIsOpen] = useState(false);
-  const [user, isLoading, setUser] = useProfile();
+  const {user, isLoading, setUser} = useProfile();
 
   useInterval(() => setTimer(timer + 1), emailRequested ? delay : null);
 

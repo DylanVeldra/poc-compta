@@ -34,7 +34,7 @@ export const TwoFactorsAuthenticationModal = (props: ModalProps) => {
   const [timer, setTimer] = useState(0);
   const [delay, setDelay] = useState(1000);
   const [emailRequested, setEmailRequested] = useState(false);
-  const [user, isLoading] = useProfile();
+  const {user, isLoading} = useProfile();
 
   useInterval(
     () => setTimer(timer + 1),

@@ -26,17 +26,17 @@ export default function Dashboard() {
     useState<FinancialOperationDto | null>(null);
 
   const getTransactions = async () => {
-    const deposits = (await fetchJSON("/transaction/deposit")).body.map(
-      depositToFinancialOperation
-    );
-    const withdrawals = (await fetchJSON("/transaction/withdrawal")).body.map(
-      withdrawalToFinancialOperation
-    );
-    const fees = (await fetchJSON("/transaction/fee")).body.map(
-      feesToFinancialOperation
-    );
+  //   const deposits = (await fetchJSON("/transaction/deposit")).body.map(
+  //     depositToFinancialOperation
+  //   );
+  //   const withdrawals = (await fetchJSON("/transaction/withdrawal")).body.map(
+  //     withdrawalToFinancialOperation
+  //   );
+  //   const fees = (await fetchJSON("/transaction/fee")).body.map(
+  //     feesToFinancialOperation
+  //   );
 
-    setTransactions([...deposits, ...withdrawals, ...fees]);
+    setTransactions([]);
   };
 
   const PendingTransactionsList = () => {

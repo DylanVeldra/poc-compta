@@ -45,8 +45,6 @@ export default function RegisterForm(props: RegisterFormProps) {
   const onSubmitHandler = () => {
     const values = getValues();
 
-    console.log('AAAAA')
-
     const {
       email,
       password,
@@ -96,8 +94,6 @@ export default function RegisterForm(props: RegisterFormProps) {
       props.showToastErrorMessage(dict.i18nServerErrors.required);
     }
   }, [errors]);
-
-  console.log('XXXX')
 
   return (
     <Form

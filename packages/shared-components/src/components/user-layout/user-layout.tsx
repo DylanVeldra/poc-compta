@@ -18,13 +18,15 @@ interface UserLayoutProps {
 }
 
 export default function UserLayout(props: UserLayoutProps) {
-  const [user, isLoading] = useProfile(false);
+  const {user, isLoading, accessToken} = useProfile(false);
   const router = useRouter();
 
   useEffect(() => {
     if (isLoading) return;
 
-    if (user === undefined) {
+    console.log(user)
+    
+    if (user === undefined || accessToken === undefined) {
       router.push('/login');
       return;
     }
@@ -37,11 +39,11 @@ export default function UserLayout(props: UserLayoutProps) {
       router.push('/enable-2fa');
       return;
     }
-    if (!user.emailLogged) {
+    if (!accessToken.emailLogged) {
       router.push('/login');
       return;
     }
-    if (!user.twoFactorLogged) {
+    if (!accessToken.twoFactorLogged) {
       router.push('/login');
       return;
     }

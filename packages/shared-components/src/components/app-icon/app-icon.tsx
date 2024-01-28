@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function AppIcon() {
   const router = useRouter();
-  const [user, isLoading] = useProfile(false);
+  const {user, isLoading} = useProfile(false);
   const [logoUrl, setLogoUrl] = useState("/");
 
   useEffect(() => {
