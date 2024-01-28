@@ -1,0 +1,1 @@
+export { default as ProfitsTable } from "./profits-table";

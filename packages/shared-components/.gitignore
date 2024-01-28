@@ -1,0 +1,8 @@
+.rollup.cache
+.env.local
+
+# Storybook
+/storybook-static
+/tailwind.config.js
+
+node_modules

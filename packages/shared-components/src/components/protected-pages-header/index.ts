@@ -1,0 +1,1 @@
+export { default as ProtectedPagesHeader } from "./protected-pages-header";

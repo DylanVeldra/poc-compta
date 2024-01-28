@@ -1,0 +1,872 @@
+{
+  "loginPageTitle": "Connexion",
+  "logout": "Se déconnecter",
+  "performanceManangement": "Gestion des performances",
+  "addressManagement": "Gestion des adresses",
+  "addressManagementAdd": "Ajouter une adresse",
+  "addressManagementEdit": "Editer une adresse",
+  "add": "Ajouter",
+  "edit": "Enregistrer",
+  "fr": "Français",
+  "en": "Anglais",
+  "copy": "Copier",
+  "validate": "Valider",
+  "welcome": "Bienvenue !",
+  "registrationConfirmation": {
+    "title": "Plus qu'une étape !",
+    "registerConfirmation": "Votre demande d'inscription est finalisée.",
+    "emailConfirmation": "Vous recevrez un mail de confirmation dès que votre demande aura été traitée."
+  },
+  "disconnectModal": {
+    "successfulDisconnection": "Déconnexion réussie",
+    "youHaveBeenLogout": "Vous avez bien été déconnecté(e) de",
+    "goBackHome": "Revenir à l'accueil"
+  },
+  "defaultToastErrors": ["Veuillez ", "contacter le support", "."],
+  "next": "Suivant",
+  "cancel": "Annuler",
+  "lock": "Verrouiller",
+  "change": "Changer",
+  "legal": "Vous devez avoir au moins 18 ans pour vous inscrire.",
+  "clickToCopy": "Cliquez ici pour copier",
+  "copied": "Copié!",
+  "dataSaved": "Enregistré",
+  "successBannerFirstPart": "La performance du ",
+  "successBannerSecondPart": " a bien été enregistrée.",
+  "summaryOf": "Résumé du mois ",
+  "tooltip": {
+    "net": "Le montant net correspond au montant déposé ou retiré auquel des frais (fixe et %) soient déduits ou ajoutés",
+    "gross": "Le montant brut correspond au montant déposé ou retiré avant que des frais (fixe et %) soient déduits ou ajoutés"
+  },
+  "status": {
+    "DRAFT": "Brouillon",
+    "PENDING": "En attente",
+    "DONE": "Effectué",
+    "CANCELLED": "Annulé",
+    "REFUSED": "Refusé",
+    "VALIDATED": "Validé"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "recent": "Mouvements récents",
+    "pending": "Mes mouvements en attente",
+    "pendingDeposit": "Dépôt en attente",
+    "pendingWithdrawal": "Retrait en attente",
+    "noOperations": "Vous n'avez aucun mouvement récent à afficher"
+  },
+  "months": [
+    "Janvier",
+    "Février",
+    "Mars",
+    "Avril",
+    "Mai",
+    "Juin",
+    "Juillet",
+    "Août",
+    "Septembre",
+    "Octobre",
+    "Novembre",
+    "Décembre"
+  ],
+  "2fa": {
+    "activateGoogleAuth": "Activer Google Authenticator",
+    "activateGoogleAuthSubtitle1": "Pour sécuriser votre compte, une authentification à deux facteurs (2FA) est nécessaire. Les étapes suivantes vous permettront de connecter votre compte",
+    "activateGoogleAuthSubtitle2": "à Google Authenticator.",
+    "downloadApp": "Téléchargez l'application “Google Authenticator”.",
+    "scanQRCode": "Scannez le code QR ci-dessous avec l'application Google Authenticator.",
+    "enterCode": "Saisir le code donné par Google Authenticator.",
+    "useInlineCode": "Vous pouvez aussi utiliser ce code:",
+    "saveSecretKey": "Veuillez sauvegarder cette clé de sauvegarde dans un endroit sûr. Cette clé vous permettra de restaurer vos codes Google Authenticator en cas de perte de votre téléphone.",
+    "completeRegistration": "Finaliser l'inscription",
+    "accountVerified": "Votre compte a bien été sécurisé.",
+    "modalTitle": "Vérification de sécurité",
+    "modalSubtitle": "Pour sécuriser votre compte, veuillez entrer les codes demandés ci-dessous.",
+    "twoFactorLabelText": "Code de vérification Google Authenticator",
+    "twoFactorInputDescription": "Code de vérification à 6 chiffres disponible sur votre application Google Authenticator",
+    "twoFactorHelpLink": "Un problème avec votre 2FA ? ",
+    "reportProblem": "Signaler un problème",
+    "formErrorMessage": {
+      "twoFactorToken": "Votre code d'authentification doit contenir 6 chiffres",
+      "emailCode": "Votre code de vérification doit contenir 6 chiffres",
+      "generic": "Un des deux codes saisis est invalide. Veuillez réessayer."
+    },
+    "serverError": {
+      "2FA_TOKEN_INVALID": "Votre code de vérification est invalide.",
+      "INVALID_CODE": "Votre code email est invalide, refaite une demande.",
+      "VERIFICATION_EXPIRED": "Votre code email a expiré, refaite une demande.",
+      "TOO_MANY_ATTEMPTS": "Trop de tentatives, refaite une demande.",
+      "VERIFICATION_INVALID": "Votre code email est invalide, refaite une demande.",
+      "NO_PENDING_VERIFICATION": "Votre code email est invalide, refaite une demande.",
+      "TOKEN_ALREADY_USED": "Votre code email est invalide, refaite une demande."
+    }
+  },
+  "forgotPassword": {
+    "title": "Mot de passe oublié",
+    "subtitle1": "Saisissez l'adresse e-mail de votre compte",
+    "subtitle2": "puis validez. Vous recevrez dans quelques instants par e-mail un lien vous permettant de créer un nouveau mot de passe en toute sécurité. ",
+    "emailSent": "E-mail envoyé",
+    "emailSentp1": "Un mail vient d'être envoyé à l'adresse suivante :",
+    "emailSentp2": "Il ne vous reste plus qu'à cliquer sur le lien présent dans l'e-mail pour réinitialiser votre mot de passe.",
+    "resetPassword": "Je crée mon nouveau mot de passe",
+    "modalTitle": "Mot de passe changé",
+    "modalSubtitle": "Votre mot de passe a bien été réinitialisé. Vous pouvez à présent  vous connecter !",
+    "sentEmailAgainIn": "Renvoyer l'email dans",
+    "sentEmailAgain": "Renvoyer l'email",
+    "validationCodeSentTitle": "Email envoyé !",
+    "validationCodeSent": "Un email a été envoyé à l'adresse ",
+    "validationCodeSentWithoutEmail": "Un email a été envoyé.",
+    "resetPasswordSubtitleSuccess": "Votre mot de passe a bien été réinitialisé. Vous pouvez à présent vous connecter ! "
+  },
+  "loginFields": {
+    "connection": "Connexion",
+    "email": "Email",
+    "password": "Mot de passe",
+    "verificationCode": "Code de vérification",
+    "login": "Se connecter",
+    "checkVerificationCode": "Vérifier le code",
+    "doNotHasAccount": "Vous n'avez pas de compte ?",
+    "register": "Inscrivez-vous",
+    "forgotPassword": "Mot de passe oublié ?",
+    "forgotPasswordTitle": "Changement de l'adresse e-mail",
+    "forgotPasswordSubtitle": "Veuillez renseigner votre adresse email, nous vous enverrons les instructions pour la changer.",
+    "notAdmin": "Vous n'êtes pas administrateur. Vous ne pouvez pas vous connecter à cette interface.",
+    "registrationInProgressTitle": "Inscription en cours",
+    "registrationInProgressSubtitle": "Votre compte n'a pas encore été accepté par l'admin. Vous recevrez un mail lorsqu'il sera accepté.",
+    "goBackHome": "Revenir à l'accueil",
+    "contactSupport": "Contacter le support",
+    "accountBlocked": "Compte bloqué",
+    "accountBlockedSubtitle": "Votre compte a été bloqué par l'admin. Vous n'être plus autorisé à vous connecter."
+  },
+  "registerFields": {
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmation du mot de passe",
+    "firstname": "Prénom",
+    "lastname": "Nom",
+    "phoneNumber": "Numéro de téléphone",
+    "register": "S'inscrire",
+    "alreadyHasAccount": "Vous avez déjà un compte ?",
+    "login": "Connectez-vous",
+    "birthDate": "Date de naissance",
+    "country": "Pays de résidence fiscale",
+    "telegram": "Pseudo Telegram - Optionnel",
+    "telegramKey": "Pseudo Telegram",
+    "stepOne": "Formulaire d'inscription",
+    "stepTwo": "Vérification de l'adresse e-mail",
+    "stepThree": "Activation de Google Authenticator (2FA)",
+    "passwordChecklistLabel": "Créer un mot de passe qui contient",
+    "passwordMatchLabel": "Les mots de passe doivent correspondre",
+    "firstCheckboxLabel": "J'accepte de recevoir des messages promotionnels de la part d'",
+    "secondCheckboxLabel1": "J'accepte les Conditions générales et je reconnais avoir pris connaissance de la Politique de confidentialité d'",
+    "secondCheckboxLabel2": ".",
+    "phoneExtension": "+33",
+    "taxCountryPlaceholder": "Pays",
+    "birthDay": "JJ",
+    "birthMonth": "MM",
+    "birthYear": "AAAA",
+    "optional": "- Optionnel",
+    "searchInput": "Rechercher...",
+    "formErrorMessage": {
+      "required": "Requis",
+      "email": {
+        "required": "Une adresse email est nécessaire",
+        "notValid": "L'adresse email n'est pas valide"
+      },
+      "firstname": {
+        "required": "Un prénom est nécessaire",
+        "minLength": "Le prénom est trop court",
+        "maxLength": "Le prénom ne peut pas dépasser 40 lettres"
+      },
+      "lastname": {
+        "required": "Un nom de famille est nécessaire",
+        "minLength": "Le nom de famille est trop court",
+        "maxLength": "Le nom de famille ne peut pas dépasser 40 lettres"
+      },
+      "telegram": {
+        "minLength": "Votre pseudo Telegram est trop court",
+        "maxLength": "Votre pseudo Telegram est trop long"
+      },
+      "password": {
+        "required": "Un mot de passe est nécessaire",
+        "other": "Le mot de passe est incomplet"
+      },
+      "phoneNumber": {
+        "wrongPhoneNumber": "Numéro non valide"
+      },
+      "checkbox": "Veuillez cocher la case pour créer votre compte."
+    }
+  },
+  "checkEmail": {
+    "title": "Verification de l'adresse e-mail",
+    "subtitle": "Pour confirmer votre compte, veuillez entrer le code de vérification à 6 chiffres envoyés à l'adresse ",
+    "codeIsValidDuring": "Le code est valide 30 minutes.",
+    "changeEmail": "Changement de l'adresse e-mail",
+    "verificationCode": "Code de vérification par e-mail",
+    "mailNotReceived": "Vous n'avez pas reçu le code ?",
+    "sendCodeAgain": "Renvoyer le code",
+    "sendCodeAgainIn": "Renvoyer le code dans",
+    "sendCodeAgainTime": "secondes",
+    "setNewEmailAdress": "La nouvelle adresse email à été prise en compte. Un nouveau code à été envoyé à celle-ci",
+    "setNewEmailTitle": "Adresse email changée",
+    "inputDescription": "Code de vérification à 6 chiffres envoyés à l’adresse",
+    "codeValidity": "Code valide 30 minutes.",
+    "changeEmailModalSubtitleOne": "Vous avez préalablement saisie l'adresse",
+    "changeEmailModalSubtitleTwo": "Vous pouvez dès à présent la modifier.",
+    "validationCodeSentTitle": "Code envoyé !",
+    "validationCodeSent": "Un code de validation a été envoyé à ",
+    "validationCodeSentWithoutEmail": "Un code de validation a été envoyé.",
+    "mobileCodeSend": "Code de vérification à 6 chiffres envoyés à l'adresse",
+    "mobileThirty": "Code valide 30 minutes",
+    "mobileGoogleAuth": "Code de vérification à 6 chiffres disponible sur votre application Google Authenticator",
+    "serverError": "Impossible de mettre à jour l'adresse email"
+  },
+  "errorMessages": {
+    "minLength": "au moins 8 caractères",
+    "specialChar": "un caractère spécial",
+    "number": "un chiffre",
+    "capital": "au moins une minuscule (a-z) et une majuscule (A-Z)",
+    "match": "les mots de passe doivent correspondre"
+  },
+  "accountManagement": {
+    "sidebar": [
+      "Tableau de bord",
+      "Suivi des performances",
+      "Retrait",
+      "Dépôt",
+      "Historique",
+      "Profil",
+      "FAQ"
+    ],
+    "adminSidebar": [
+      "Suivi des statistiques",
+      "Gestion de la performance",
+      "Demandes de retrait",
+      "Demandes de dépôts",
+      "Historique",
+      "Gestion des inscriptions",
+      "Gestion des utilisateurs",
+      "Gestion des adresses",
+      "Gestion des tags",
+      "Profil"
+    ],
+    "dashboard": {
+      "subtitle": "Mes informations",
+      "update": "Mettre à jours mes informations",
+      "security": {
+        "title": "Sécurité",
+        "antiphishing": {
+          "title": "Code anti-hameçonnage",
+          "description1": "Ce code anti-hameçonnage vous permettra de vérifier que les e-mails que vous recevez proviennent bien d'",
+          "description2": ". Il sera modifié automatiquement tous les six mois. Vous pouvez également le modifier si vous le souhaitez.",
+          "change": "Changer",
+          "warning1": "Ce code ne doit pas être divulgué. Notez qu'il ne vous sera jamais demandé par le support",
+          "warning2": ".",
+          "newCodeLabel": "Nouveau code anti-hameçonnage",
+          "updateCode": "Changer votre code anti-hameçonnage",
+          "codeFormat": "Code à 6 caractères (chiffres et lettres)",
+          "errorFormat": "Le code doit être composé de 6 chiffres ou caractères majuscules",
+          "example": "Exemple : 6FD25F",
+          "updateSuccess": {
+            "title": "Succès !",
+            "content": "Le code anti-hameçonnage à été mis à jour"
+          },
+          "updateError": {
+            "title": "Erreur !",
+            "content": "Impossible de mettre à jour le code anti-hameçonnage"
+          }
+        }
+      }
+    },
+    "profile": {
+      "informations": "Informations",
+      "notifications": "Notifications",
+      "pendingOperations": "Opérations en attente de validation",
+      "historyOfOperations": "Historiques des opérations",
+      "generalInformation": "Informations générales",
+      "operatingFees": "Frais de fonctionnement",
+      "uniqueDepositAddress": "Adresse de dépôt unique",
+      "addressType": "Adresse ERC20/BEP20",
+      "currentMonth": "Mois en cours",
+      "nextMonth": "Mois suivant",
+      "edit": "Modifier les informations",
+      "save": "Enregister"
+    }
+  },
+  "mobileNavigation": {
+    "theme": "Thème",
+    "language": "Langues",
+    "FAQ": "FAQ",
+    "CGU": "CGU",
+    "Licence": "Licence"
+  },
+  "deposit": {
+    "deposit": "Dépôt",
+    "checkWebsite1": "Vérifiez que vous êtes bien sur le vrai site",
+    "checkWebsite2": "avant de réaliser tout dépôt.",
+    "NotificationOfDeposit": "Notification de dépot",
+    "last": "Dépôt précédent",
+    "next": "Dépôt suivant",
+    "lastDeposits": "Derniers dépôts",
+    "lastDepositsBackOffice": "Vue d'ensemble des dépots en attente",
+    "network": "Réseau",
+    "publicId": "ID du dépôt",
+    "notificationDate": "Date de demande",
+    "depositAmount": "Montant déposé",
+    "creditedAmount": "Montant crédité",
+    "transactionId": "ID de transaction",
+    "notify": "Notifier un dépôt",
+    "chooseDepositAddress": "Choisir une adresse de dépot",
+    "copyAddress1": "Copier l'adresse",
+    "copyAddress2": " sur le réseau destinataire",
+    "showQRCode": "Voir le QR Code",
+    "showAddress": "Voir l'adresse",
+    "anyQuestion": "Une question ?",
+    "readTheGuide": "Retrouvez notre guide pas-à-pas pour demander un dépôt.",
+    "enterInformations": "Saisir les informations du dépôt",
+    "amount": "Montant à déposer",
+    "minimum": "Minimum 1 000$",
+    "transactionIdExample": "Exemple: 0xBd1157740358d730dE08eC6eACC098",
+    "additionalInformations": "Informations complémentaires",
+    "additionalInformationsExample": "Exemple : Origine de la transaction",
+    "grossAmount": "Montant brut déposé",
+    "fees": "Frais",
+    "netAmount": "Montant net crédité",
+    "status": "Statut",
+    "token": "Token",
+    "seeMore": "Voir tout",
+    "requestStatus": "Statut de la requête",
+    "investor": "Investisseur",
+    "adminInterfaceTitleDeposits": "Gestion des notifications de dépôts",
+    "awaitingDeposits": "Dépôts en attente",
+    "validatedDeposits": "Dépôts validés",
+    "refusedDeposits": "Dépôts refusés",
+    "numberOfRequests": "Nombre de demandes",
+    "totalAmount": "Montant",
+    "refusalReason": "Exemple : Somme inexacte",
+    "rejectionReasonLabel": "Motif du refus",
+    "pending": "Dépôts à valider",
+    "automaticallyComputed": "Calculé automatiquement",
+    "noDeposits": "Vous n'avez aucun dépôt à afficher.",
+    "noDepositsToValidate": "Aucun dépôt à valider",
+    "noOperations": "Vous n'avez aucune opération à afficher",
+    "process": "Traiter",
+    "action": "Action",
+    "validationSuccessful": "Succès de la validation du dépôt ",
+    "validationFailure": "Nous avons rencontré un problème lors de la validation du dépôt ",
+    "rejectionSuccessful": "Succès du refus du dépôt ",
+    "rejectionFailure": "Nous avons rencontré un problème lors du refus du dépôt ",
+    "sucessfullyRejected": "Rejeté avec succès",
+    "successfullyValidated": "Validé avec succès",
+    "fixedFee": "Frais fixes",
+    "percentFee": "Frais %",
+    "success": "Succès !",
+    "yourDeposit": "Votre notification de dépôt",
+    "of": "de",
+    "hasBeenTaken": "a bien été prise en compte",
+    "tooltipAside": "Montant net, déduit des frais, crédité sur votre compte",
+    "nbRequests": "Nombre de demande",
+    "recipientNetwork": "Réseau destinataire",
+    "theDeposit": "Le dépôt",
+    "hasBeenValidated": "a bien été validé.",
+    "hasBeenRefused": "a bien été refusé pour le motif suivant",
+    "fixedFeeAnd": "de frais fixes ainsi que",
+    "percentFeeAdded": "du montant de la transaction seront déduits du dépôt",
+    "defaultServerErrors": "Erreur inconnue, contacter le support",
+    "serverErrors": {
+      "USER_ADDRESS_NOT_FOUND": "Vous n'avez pas d'adresse de dépôt attribuée. Contactez le support pour vous attribuer une adresse.",
+      "TRANSACTION_ID_ALREADY_USED": "Cet ID de transaction a déjà été notifié."
+    },
+    "depositAddress": "Adresse du dépôt",
+    "transactionHistory": "Historique de l'opération",
+    "timeline": {
+      "created": "Création de la notification",
+      "done": "Dépôt effectué",
+      "refused": "Dépôt refusé par l'admin",
+      "cancelled": "Dépôt annulé"
+    }
+  },
+  "txScan": {
+    "title": "TxScan",
+    "verifyTransaction": "Vérifier la transaction",
+    "pendingScan": "Scan de la transaction en cours...",
+    "noProblem": "Aucun problème detecté.",
+    "badSmartContract": "Le smart contract ne correspond pas.",
+    "badTransactionId": "L'id de transaction n'est liée à aucune transaction sur cette blockchain.",
+    "lowerAmount": "Le montant déposé est inférieur à la somme retrouvée dans la transaction.",
+    "higherAmount": "Le montant déposé est inférieur à la somme retrouvée dans la transaction.",
+    "and": "et",
+    "error": "erreur",
+    "warning": "avertissement",
+    "haveBeenDetected": "ont été détectées.",
+    "problemDetected": "TxScan a détecté un problème dans la transaction",
+    "transactionExists": {
+      "TRANSACTION_NOT_FOUND": "L'id de transaction n'est liée à aucune transaction sur cette blockchain.",
+      "CANT_CHECK_TRANSACTION_EXISTS": "Ne peut pas vérifier si la transaction existe."
+    },
+    "status": {
+      "TRANSACTION_INTERRUPTED": "La transaction a été intérompu.",
+      "TRANSACTION_PENDING": "La transaction est en cours de traitement.",
+      "CANT_CHECK_STATUS": "Ne peut pas vérifier le status."
+    },
+    "receiver": {
+      "CANT_GET_RECEIVER": "Ne peut pas vérifier l'adresse de destination.",
+      "NOT_THE_SAME_RECEIVER": "Pas la bonne adresse de destination."
+    },
+    "rightToken": {
+      "CANT_GET_TOKEN": "Ne peut pas vérifier si le smart contract existe.",
+      "NOT_THE_SAME_TOKEN": "Le smart contract ne correspond pas."
+    },
+    "amount": {
+      "CANT_GET_AMOUNT": "Ne peut pas vérifier le montant",
+      "TRANSACTION_AMOUNT_IS_HIGHER": "Le montant retrouvé sur la blockchain est supérieur au montant dit déposé par l'utilisateur.",
+      "TRANSACTION_AMOUNT_IS_LOWER": "Le montant retrouvé sur la blockchain est inférieur au montant dit déposé par l'utilisateur.",
+      "TRANSACTION_AMOUNT_IS_NEARLY_THE_SAME": "Le montant retrouvé sur la blockchain n'est pas identique au montant dit déposé par l'utilsiateur."
+    }
+  },
+  "withdrawal": {
+    "percentFee": "Frais",
+    "adminInterfaceTitleWithdrawals": "Gestion des notifications de retrait",
+    "transactionId": "ID de transaction",
+    "lastWithdrawals": "Derniers retraits",
+    "historyWithdrawalRequest": "Historique des demandes de retrait",
+    "withdrawal": "Retrait",
+    "last": "Retrait précédent",
+    "next": "Retrait suivant",
+    "request": "Demander un retrait",
+    "network": "Réseau destinataire",
+    "networkAddress": "Adresse du réseau",
+    "yourWithdrawal": "Votre retrait",
+    "yourWithdrawalOf": "Votre retrait de",
+    "haveBeenRejected": "a été refusé pour le motif suivant :",
+    "depositLastMonth": "Un dépôt a été réalisé dans les 30 derniers jours.",
+    "pleaseWait": "Veuillez attendre",
+    "daysBeforeWithdrawal": "jours pour demander un nouveau retrait.",
+    "pendingDepositWaiting": "Un dépôt est actuellement en attente de validation. Veuillez annuler ce dépôt ou attendre 30 jours après validation de celui-ci pour réaliser un nouveau retrait.",
+    "readTheGuide": "Retrouvez notre guide pas-à-pas pour demander un retrait.",
+    "netRequestedAmount": "Montant demandé",
+    "minimum": "Minimum 1000$",
+    "networkAddressExample": "Exemple:",
+    "grossAmount": "Montant brut retiré",
+    "netAmount": "Montant net demandé",
+    "netAmountSolded": "Montant retiré du solde",
+    "validate": "Valider la demande",
+    "refuse": "Refuser la demande",
+    "withdrawalId": "ID du retrait",
+    "obtainedAmount": "Montant reçu",
+    "goBack": "Retour",
+    "pending": "Retraits à valider",
+    "date": "Date de retrait effectif estimé:",
+    "currentRequest": "Votre demande de retrait du",
+    "emitDate": "Date de la demande",
+    "requestStatus": "Statut de la demande",
+    "noWithdrawals": "Vous n'avez aucun retrait à afficher.",
+    "noWithdrawalsToValidate": "Aucun retrait à valider.",
+    "withdrawalAmount": "Montant net demandé",
+    "awaitingWithdrawals": "Retraits en attente",
+    "validatedWithdrawals": "Retraits validés",
+    "refusedWithdrawals": "Retraits refusés",
+    "validationSuccessful": "Succès de la validation du retrait ",
+    "validationFailure": "Nous avons rencontré un problème lors de la validation du retrait ",
+    "rejectionSuccessful": "Succès du refus du retrait ",
+    "rejectionFailure": "Nous avons rencontré un problème lors du refus du retrait ",
+    "sucessfullyRejected": "Rejeté avec succès",
+    "successfullyValidated": "Validé avec succès",
+    "refusalReason": "Motif de refus",
+    "missingValues": "Il semble que l'ID de transaction ou le montant à créditer sont manquants.",
+    "draft": "Votre demande de retrait en brouillon",
+    "draftMobile": "Votre demande de retrait du",
+    "cancel": "Annuler la demande",
+    "update": "Valider les modifications",
+    "fixedFee": "Frais fixes",
+    "personnalAddress": "Adresse personnelle",
+    "amountRemoved": "Montant retiré du solde",
+    "examplePersonnalAddress": "Example: 0xBd1157740358d730dE08eC6eA3ACC098f01749Bd",
+    "yourAddress": "Votre adresse",
+    "netAmountAsked": "Montant net demandé",
+    "tooltipAside": "Montant brut débité sur votre compte une fois les frais ajoutés au montant demandé.",
+    "automaticallyComputed": "Calculé automatiquement",
+    "publicId": "ID du retrait",
+    "requestDate": "Date de demande",
+    "networkAdress": "Réseau de l'adresse",
+    "recipientAddress": "Adresse destinataire",
+    "token": "Token",
+    "success": "Succès !",
+    "yourRequestedWithdrawal": "Votre demande de retrait",
+    "of": "de",
+    "isInDraft": " est en brouillon.",
+    "possibility": "Vous avez la possibilité de la modifier ou l'annuler jusqu'au 19 du mois.",
+    "status": "Statut",
+    "emitter": "Investisseur",
+    "theWithdrawal": "Le retrait",
+    "hasBeenAccepted": "a bien été accepté.",
+    "hasBeenRejected": "a bien été refusée pour le motif suivant ",
+    "transactionIdExample": "Exemple: 0xBd1157740358d730dE08eC6eACC098",
+    "withdrawalAbuse": "Abus de retrait",
+    "rejectionReasonLabel": "Motif du refus",
+    "estimated": "Éstimé",
+    "the": "le",
+    "at": "au",
+    "oops": "Oops",
+    "rawRequestedAmount": "Montant brut débité",
+    "amountToWithdrawal": "Montant à retirer",
+    "successfullyDeletedContent": "a bien été supprimée.",
+    "successfullyUpdatedContent": "a bien été modifée.",
+    "updateError": "N'a pas pu être mis a jour",
+    "yourLastDeposit": "Votre dernier dépôt date du",
+    "remaining": "Il vous reste",
+    "daysBeforeDeposit": "avant de pouvoir demander un nouveau retrait.",
+    "deleteModal": {
+      "title": "Confirmez-vous l'annulation de la demande ?",
+      "ifYouConfirm": "Si vous confirmez, votre demande de retrait de",
+      "willBeDeleted": "sera supprimée. Vous pourrez toujours en créer une nouvelle quand vous le souhaitez.",
+      "return": "Retour",
+      "deleteWithdrawal": "Annuler ma demande"
+    },
+    "pendingWithdrawalModal": {
+      "title": "Retrait en cours",
+      "content": "Vous avez actuellement un retrait en attente de validation ou en brouillon, si vous notifiez ce dépot, le retrait sera annulé ou refusé au moment de la validation du dépot par l'administrateur.",
+      "cancel": "Annuler",
+      "continue": "Continuer le dépôt"
+    },
+    "validation": {
+      "emitterAddressRequired": "L'adresse personnelle est obligatoire",
+      "netRequestedAmountRequired": "La saisie d'un montant à retirer est obligatoire",
+      "netRequestedAmountMinAmount": "Le montant minimum est de 1000$",
+      "netRequestedAmountBalance": "Le montant saisie doit être inférieur à votre balance"
+    },
+    "youCannotApply": "Vous ne pouvez pas faire une demande de retrait de",
+    "becauseYourBalance": "car votre solde est de",
+    "fixedFeeAnd": "de frais fixes ainsi que",
+    "percentFeeAdded": "du montant de la transaction seront rajoutés au retrait",
+    "timeline": {
+      "created": "Création de la demande",
+      "done": "Retrait effectué",
+      "refused": "Retrait refusé par l'admin",
+      "cancelled": "Retrait annulé",
+      "draft": "Retrait mis en brouillon"
+    }
+  },
+  "fees": {
+    "amountBilled": "Montant des frais facturés",
+    "timeline": {
+      "created": "Frais facturé par l'admin"
+    }
+  },
+  "history": {
+    "history": "Historique",
+    "searchByOperationId": "Rechercher par ID de l'opération",
+    "operation": "Opération",
+    "operationId": "ID de l'opération",
+    "gross": "Montant brut",
+    "net": "Montant net",
+    "noOperations": "Vous n'avez aucune transaction à afficher.",
+    "idLabel": "ID de l'opération",
+    "operationDate": "Date de création",
+    "operationProcessedDate": "Date de réalisation",
+    "operationEstimationDate": "Date de réalisation estimé au",
+    "token": "Token",
+    "depositId": "ID du dépôt",
+    "notificationDate": "Date de la notification",
+    "requestStatus": "Status",
+    "operationDetail": "Détail de l'opération"
+  },
+  "address": {
+    "addedp1": "L'adresse",
+    "addedp2": "a bien été ajoutée",
+    "edited": "a bien été modifiée",
+    "search": "Rechercher",
+    "name": "Nom de l'adresse",
+    "protocolName": "Réseau",
+    "token": "Token",
+    "address": "Adresse",
+    "fixedFee": "Frais fixes",
+    "percentFee": "Frais (%)",
+    "status": "Statut",
+    "noAddress": "Vous n'avez aucune adresse à afficher",
+    "nameExample": "Exemple: Binance USDT",
+    "fixedFeesExample": "Exemple : 100$",
+    "feesExample": "Example : 0.5%",
+    "success": "Succès !",
+    "choose": "Choisir",
+    "sucessfullyAddress": "adresse",
+    "successfullyDeletedContent": "a bien été supprimée",
+    "successfullyEnabledContent": "a bien été activée",
+    "successfullyDisabledContent": "a bien été désactivée",
+    "addNetworkIssue": "Nous n'avons pas pu ajouté un nouveau réseau. Rafraîchisser la page et réessayer s'il vous plaît.",
+    "showAddress": "Afficher l'adresse",
+    "showIdTransaction": "Afficher l'id de transaction",
+    "addressNameExample": "Exemple : Binance USDT",
+    "formErrorMessage": {
+      "name": {
+        "required": "Un nom est requis"
+      },
+      "address": {
+        "required": "Ajouter une adresse"
+      },
+      "token": {
+        "required": "Sélectionner un token"
+      },
+      "protocolName": {
+        "required": "Un nom de protocol est requis."
+      },
+      "fixedFee": {
+        "required": "Un montant minimum est requis.",
+        "min": "Le montant minimum doit être de 0.",
+        "max": "Le montant maximum ne peut pas dépasser 5000."
+      },
+      "percentFee": {
+        "typeError": "Seul les nombres avec des points (.) sont acceptés",
+        "maxDigits": "Le nombre ne peut pas dépasser 2 décimals.",
+        "required": "Un montant minimum est requis.",
+        "min": "Le montant minimum doit être de 0.",
+        "max": "Le montant maximum ne peut pas dépasser 100."
+      }
+    }
+  },
+  "addressMenu": {
+    "enable": "Activer",
+    "disable": "Désactiver",
+    "edit": "Modifier",
+    "delete": "Supprimer"
+  },
+  "addressStatus": {
+    "enabled": "Actif",
+    "disabled": "Désactivé"
+  },
+  "addressModal": {
+    "deleteModal": {
+      "title": "Confirmez-vous la suppression de cette adresse ?",
+      "ifYouConfirm": "Si vous confirmez, l'adresse",
+      "ofNetwork": "du réseau",
+      "willBeErased": "va être définitivement effacée.",
+      "buttonDelete": "Supprimer",
+      "buttonCancel": "Annuler"
+    },
+    "enableModal": {
+      "title": "Confirmez-vous l'activation de cette adresse ?",
+      "ifYouConfirm": "Si vous confirmez, l'adresse",
+      "willBeActivated": "va être activée.",
+      "youCanAlways": "Vous pourrez toujours la désactiver plus tard.",
+      "network": "Réseau",
+      "token": "Token",
+      "address": "Adresse",
+      "buttonEnable": "Activer",
+      "buttonCancel": "Annuler"
+    }
+  },
+  "userManagement": {
+    "userManagement": "Gestion des utilisateurs",
+    "userDetails": "Fiche utilisateur",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "registrationDate": "Date d'inscription",
+    "fees": "Frais (%)",
+    "status": "Statut",
+    "accepted": "Accepté",
+    "banned": "Banni",
+    "inProgress": "En cours",
+    "searchPlaceholder": "Rechercher par id ou prénom",
+    "noUser": "Aucune inscription en cours"
+  },
+  "registrationManagement": {
+    "rejectUserModalTitle": "Confirmez-vous le refus de cet utilisateur ?",
+    "rejectUserModalSubtitlep1": "Si vous confirmez, la demande d'inscription de ",
+    "rejectUserModalSubtitlep2": " sera refusée.",
+    "rejectUser": "Refuser l'utilisateur",
+    "requestStatus": "Statut de la demande",
+    "registrationManagement": "Demande d'inscription",
+    "Email": "Email en attente",
+    "Validation": "Validation en attente",
+    "2FA": "2FA en attente",
+    "reject": "Refuser",
+    "validate": "Valider",
+    "rejectToLowercase": "refuser",
+    "validateToLowercase": "valider",
+    "validationSuccess": "Inscription validée",
+    "rejectSuccess": "Rejet validé",
+    "genericToastContent": "L'inscription de",
+    "toastContentValidation": "a bien été validée.",
+    "toastContentRejection": "a bien été refusée.",
+    "actionFailed": "Nous n'avons pas pu",
+    "addUniqueDepositAddressModal": {
+      "title": "Renseignez l'adresse de dépôt",
+      "addAddressToUser": "Assignez une adresse de depôt à l'utilisateur",
+      "thisAddressMustBeUnique": "Cette adresse doit être unique et sera utilisé par l'utilisateur à chaque dépot.",
+      "validateRequest": "Valider la demande"
+    }
+  },
+  "serverErrors": {
+    "reloadPage": "Recharger la page",
+    "general": "Une erreur est survenue au niveau du serveur. Rafraîchissez la page et veuillez réessayer s'il vous plaît.",
+    "INVALID_CREDENTIALS": "Votre adresse email et/ou votre mot de passe ne sont pas valides.",
+    "VALIDATION_ERROR": "L'un des champs est incorrecte.",
+    "TOO_MANY_REQUESTS": "Veuillez attendre 60 secondes avant de reitérer votre demande.",
+    "INVALID_CODE": "Code de vérification invalide.",
+    "2FA_TOKEN_INVALID": "Le code de vérification n'est pas correct."
+  },
+  "performanceMonitoring": {
+    "onGoingMonth": "Mois en cours",
+    "onGoingYear": "Année en cours",
+    "profit": "Gains",
+    "affiliateProfit": "Gains affiliation",
+    "myPerformance": "Mes performances",
+    "chartCurves": {
+      "rawBalance": "Évolution du solde",
+      "apr-apy": "Évolution APR / APY",
+      "rawProfit": "Évolution des gains"
+    },
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "monthlyAbbreviation": "M",
+    "yearlyAbbreviation": "A",
+    "profitDetails": "Détails des gains",
+    "noData": "Aucune donnée à afficher",
+    "makeADeposit": "Réalisez un premier dépot pour commencer à suivre votre performance.",
+    "charts": {
+      "curves": {
+        "gains": "Gains",
+        "balance": "Solde",
+        "apr-apy": "APR / APY"
+      }
+    }
+  },
+  "performanceManagement": {
+    "modalTitle": "Confirmez-vous le verouillage des performances du mois",
+    "modalSubtitleFirstPart": "Si vous confirmez, les performances du mois ",
+    "modalSubtitleSecondPart": "seront définitivement verouillées et ne pourront plus être modifiées.",
+    "columnFrozenSuccessfully": "Les performances ont été gelé avec succès.",
+    "columnFrozenError": "Une erreur c'est produite lors du gel des performances.",
+    "AddNewPerformanceIssue": "Vous devez enter un chiffre entier, ou avec 2 chiffres après la virgule pour valider le changement. Les points ne sont pas autorisés."
+  },
+  "i18nServerErrors": {
+    "TOKEN_ALREADY_USED": "Le token a déjà été utilisé. Redemander un email de réinitialisation.",
+    "VALIDATION_ERROR": {
+      "Password must have minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character": "Le mot de passe ne correspond pas aux critères de validation.",
+      "birthDate must be a valid ISO 8601 date string": "La date de naissance ne semble pas valide.",
+      "Country must be a valid country (ISO 3166-1 alpha-2), taxResidenceCountry must be longer than or equal to 2 characters": "Le pays n'est pas correct ou est absent.",
+      "Country must be a valid country (ISO 3166-1 alpha-2), taxResidenceCountry must be longer than or equal to 2 characters, telegramAccount must be longer than or equal to 2 characters": "Le pays que vous avez soumis ne semble pas correct.",
+      "optIn must be a boolean value": "La valeur opt in est manquante.",
+      "The terms of service must be ticked before moving forward.": "Veuillez accepter les conditions de service avant de poursuivre.",
+      "telegramAccount must be longer than or equal to 2 and shorter than or equal to 64 characters": "Le compte du télégramme doit comporter plus de 2 caractères et moins de 64 caractères.",
+      "email must be an email, telegramAccount must be longer than or equal to 2 characters": "Le format de l'adresse électronique ne semble pas correct.",
+      "phoneNumber must be a valid phone number, telegramAccount must be longer than or equal to 2 characters": "Le format du numéro de téléphone ne semble pas correct.",
+      "phoneNumber must be a valid phone number": "Le numéro de téléphone n'est pas valide.",
+      "firstname must be longer than or equal to 2 and shorter than or equal to 256 characters, firstname must be a string, phoneNumber must be a valid phone number, telegramAccount must be longer than or equal to 2 characters": "Le champ prénom ne peut pas dépasser 256 caractères et doit être composé d'au moins 2 caractères.",
+      "lastname must be longer than or equal to 2 and shorter than or equal to 256 characters, lastname must be a string, phoneNumber must be a valid phone number, telegramAccount must be longer than or equal to 2 characters": "Le champ nom de famille ne peut pas dépasser 256 caractères et doit être composé d'au moins 2 caractères."
+    },
+    "DUPLICATE_FIELDS": {
+      "Field(s): phoneNumber already exists": "Le numéro de téléphone est déjà utilisé. Veuillez utiliser un autre numéro de téléphone.",
+      "Field(s): email already exists": "Cette adresse électronique est déjà utilisée. Veuillez utiliser une autre adresse électronique."
+    },
+    "INVALID_CREDENTIALS": "Votre adresse email et/ou votre mot de passe ne sont pas valides.",
+    "required": "Veuillez renseigner tous les champs obligatoires",
+    "TOO_MANY_REQUESTS": "Veuillez attendre 60 secondes avant de reitérer votre demande.",
+    "INVALID_CODE": "Code de vérification invalide.",
+    "missing_value_p1": "La valeur ",
+    "missing_value_p2": " est manquante ou incorrecte.",
+    "2FA_TOKEN_INVALID": "Le code de vérification n'est pas correct.",
+    "general": "Une erreur est survenue au niveau du serveur. Rafraîchissez la page et veuillez réessayer s'il vous plaît."
+  },
+  "404": {
+    "notFound": "Oups! Page non trouvée",
+    "pageNotFound": "La page que vous recherchez n'existe pas ou a été supprimée",
+    "backToHome": "Retour à l'accueil",
+    "backToAddressPage": "Retour à la page accueil"
+  },
+  "homepage": {
+    "pageTitle": "Commencez à investir dès maintenant dans la cryptomonnaie",
+    "pageSubtitle": "offre un moyen simple et sécurisé pour investir dans le monde des cryptomonnaies.",
+    "buttonContent": "Inscrivez-vous",
+    "statisticp1": "sous gestion",
+    "statisticp2": "de rendement mensuel",
+    "statisticp3": "investisseurs",
+    "statisticp4": "retraits",
+    "featuresTitle": "Une plateforme pour suivre vos gains en temps réel",
+    "features": {
+      "firstFeatureTitle": "Suivez vos performances",
+      "firstFeatureSubtitle": "Retrouvez le détail de vos mouvements et suivez en temps réel l'évolution de vos gains.",
+      "secondFeatureTitle": "Dépôts et retraits facilités",
+      "secondFeatureSubtitle": "Déposer et retirer facilement en toute sécurité avec plusieurs réseaux et cryptomonnaies disponibles. ",
+      "thirdFeatureTitle": "Support sous 48h",
+      "thirdFeatureSubtitle": "Support réactif pour vous accompagner pendant votre investissement."
+    },
+    "benefitsTitle": "Nos trois piliers",
+    "benefitsSubtitle": "repose sur ces trois valeurs fondamentales essentielles à son bon fonctionnement",
+    "benefits": {
+      "firstBenefitTitle": "Transparence",
+      "firstBenefitSubtitle1": "et sa plateforme sont 100% régulés par les validateurs qui délivrent les licences permettant à",
+      "firstBenefitSubtitle2": "d'opérer.",
+      "secondBenefitTitle": "Performance",
+      "secondBenefitSubtitle": "Une rentabilité inégalée grâce à une méthode d'opérations à haute fréquence sur les marchés financiers exclusifs.",
+      "thirdBenefitTitle": "Liberté",
+      "thirdBenefitSubtitle": "Vous êtes libre de déposer et de retirer en cryptomonnaies. Un retrait est possible dès 2 semaines après votre premier dépôt."
+    },
+    "firstQuestion1": "Est-ce que",
+    "firstQuestion2": "est régulé ?",
+    "secondQuestion": "Quelles sont les limites de dépôts et retraits ?",
+    "thirdQuestion1": "Avec quelles devises fonctionne",
+    "thirdQuestion2": " ?",
+    "fourthQuestion1": "Depuis combien d'années",
+    "fourthQuestion2": "opère-t-il ?",
+    "firstQuestionAnswer1": "Oui",
+    "firstQuestionAnswer2": "est en cours de régulation.",
+    "secondQuestionAnswer": "Les dépôts et les retraits n'ont pas de limites mais doivent être au minimum de 1000$",
+    "thirdQuestionAnswer": {
+      "firstPart": "Votre solde de compte est en $",
+      "secondPart": "accepte les cryptomonnaies suivantes :",
+      "cryptoList": ["USDT", "USDC", "BUSD"],
+      "thirdPart": "Sur les réseaux suivants :",
+      "networkList": ["ERC20", "BEP20"]
+    },
+    "fourthQuestionAnswer1": "opère depuis de 2004 sur son marché. Puis il s'est ouvert aux marchés des ETF, des cryptomonnaies et des matières premières. Depuis très récemment",
+    "fourthQuestionAnswer2": "est régulé/en cours de régulation.",
+    "news": "Actualités",
+    "lastSectionTitle": "Investissez dès maintenant",
+    "footer": {
+      "about": {
+        "title": "A propos de nous",
+        "career": "Carrières",
+        "contact": "Nous contacter"
+      },
+      "support": {
+        "title": "Support",
+        "helpcenter": "Centre d'aide",
+        "fees": "Frais",
+        "identifyCheck": "Vérification d'identité",
+        "contactUs": "Nous contacter"
+      },
+      "legalDisclaimer": {
+        "title": "Mentions légales",
+        "conditionsOfUse": "Conditions d'utilisation",
+        "privacyPolicy": "Politique de confidentialité"
+      }
+    }
+  },
+  "tag": {
+    "success": "Succès !",
+    "search": "Rechercher",
+    "adminInterfaceTitleTags": "Gestion des tags",
+    "delete": "Supprimer le tag",
+    "theTag": "Le tag",
+    "hasBeenAdded": "a bien été ajouté",
+    "hasntBeenAdded": "n'a pas été ajouté",
+    "hasBeenDeleted": "a bien été supprimé",
+    "hasntBeenDeleted": "n'a pas été supprimé",
+    "hasBeenUpdated": "a bien été mis à jour",
+    "hasntBeenUpdated": "n'a pas été mis à jour",
+    "linkTag": "Lier un tag",
+    "addTag": {
+      "add": "Ajouter un tag",
+      "description": "description",
+      "placeholderName": "Nom: N°",
+      "placeholderDescription": "Description : Description de la carte N°"
+    },
+    "deleteModal": {
+      "title": "Confirmez-vous la suppression de ce tag ?",
+      "return": "Retour",
+      "delete": "Supprimer",
+      "ifYouConfirm": "Si vous confirmez, le tag",
+      "willBeErased": "va être définitivement effacée."
+    }
+  }
+}

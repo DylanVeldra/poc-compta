@@ -1,0 +1,1 @@
+export { default as DepositInformations } from "./deposit-informations";

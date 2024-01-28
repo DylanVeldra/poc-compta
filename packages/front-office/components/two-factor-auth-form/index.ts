@@ -1,0 +1,1 @@
+export { default as TwoFactorAuthForm } from "./two-factor-auth-form";

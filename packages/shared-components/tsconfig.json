@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // Default
+    "target": "es5", 
+    "esModuleInterop": true, 
+    "forceConsistentCasingInFileNames": true,
+    "strict": true, 
+    "skipLibCheck": true,
+    "baseUrl": "./",
+
+    // Added
+    "jsx": "react-jsx", 
+    "module": "ESNext",  
+    "declaration": true,
+    "declarationDir": "types",
+    "sourceMap": true,
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@shared-components/*": ["./src/components/*"],
+      "@shared-hooks": ["./src/hooks/index.ts"],
+      "@shared-types": ["./src/types/index.ts"],
+      "@shared-utils": ["./src/utils/index.ts"],
+      "@shared-utils/validation": ["./src/utils/validation/index.ts"]
+    }
+  }
+}

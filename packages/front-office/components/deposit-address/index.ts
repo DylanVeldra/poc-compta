@@ -1,0 +1,1 @@
+export { default as DepositAddress } from "./deposit-address";

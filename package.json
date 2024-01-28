@@ -1,0 +1,32 @@
+{
+  "name": "eovo",
+  "version": "0.0.1",
+  "description": "Poc Compta monorepo",
+  "private": true,
+  "workspaces": [
+    "./packages/*",
+    "./devops/pulumi/*",
+    "./utils/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github-perso:DylanVeldra/monorepo.git"
+  },
+  "scripts": {
+    "prepare-dev": "pnpm -r prepare-dev",
+    "dev": "pnpm -r dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "@types/gulp": "^4.0.9",
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "@types/node": "*",
+    "commander": "^9.4.0",
+    "esm": "^3.2.25",
+    "ts-node": "^10.9.1",
+    "typescript": ">=2.7"
+  }
+}

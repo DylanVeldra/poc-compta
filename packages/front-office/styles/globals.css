@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,900;1,400;1,600&display=swap");
+
+@import url("https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css");
+@import url("https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css");
+@import url("https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Chrome, Safari, Edge, Opera */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+@layer base {
+  h2 {
+    @apply text-3xl text-fake-black dark:text-white;
+  }
+
+  h4 {
+    @apply text-2xl;
+  }
+
+  h5 {
+    @apply text-xl;
+  }
+}
+
+.valid > span {
+  color: #6c9d53;
+}
+.invalid > span {
+  color: #c26170;
+  opacity: 1 !important;
+  margin-top: -1px;
+}
+#password-input-container > span,
+#confirmPassword-input-container > span {
+  display: none;
+}
+
+.swiper {
+  max-width: calc(100% - 80px);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-placeholder-hidden::placeholder {
+    color: transparent;
+  }
+}
