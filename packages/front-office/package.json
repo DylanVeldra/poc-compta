@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "get-tailwind-config": "cp ../shared-components/tailwind.config.js .",
-    "dev": "pnpm run get-tailwind-config && next dev -p 3000",
+    "dev": "next dev -p 3000",
     "build": "pnpm run get-tailwind-config && next build",
     "start": "pnpm run get-tailwind-config && next start -p 3000",
     "lint": "next lint",

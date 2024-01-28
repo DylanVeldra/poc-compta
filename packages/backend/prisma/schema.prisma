@@ -126,8 +126,9 @@ model InvoiceRow {
   amount       Int
   // In Cent
   pricePerUnit Int
-  invoiceId    Int
   vat          Float
+
+  invoiceId Int
 
   // Virtuals fields
   Invoice Invoice @relation(fields: [invoiceId], references: [id])
@@ -146,11 +147,13 @@ model Invoice {
   currency       String
   pdfDocumentUrl String?
 
-  companyId Int
+  companyId  Int
+  customerId Int
 
   // Virtuals fields
   rows                   InvoiceRow[]
   company                Company                  @relation(fields: [companyId], references: [id])
+  customer               Customer                 @relation(fields: [customerId], references: [id])
   transactions           Transaction[]
   InvoicesOnTransactions InvoicesOnTransactions[]
 }
@@ -310,5 +313,6 @@ model Customer {
   companyId Int
 
   // Virtuals fields
-  company Company @relation(fields: [companyId], references: [id])
+  company Company   @relation(fields: [companyId], references: [id])
+  Invoice Invoice[]
 }
