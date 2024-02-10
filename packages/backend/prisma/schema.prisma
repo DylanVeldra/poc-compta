@@ -119,14 +119,17 @@ enum INVOICE_STATUS {
 }
 
 model InvoiceRow {
-  id           Int    @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+
+  type         String
   description  String
   // TODO passer en string
   // In Cent
-  amount       Int
+  quantity     Int
   // In Cent
   pricePerUnit Int
-  vat          Float
+  // In Percent
+  discount     Int
 
   invoiceId Int
 
@@ -143,8 +146,10 @@ model Invoice {
   // id like 000001 unique for each company
   comptabilityId Int?
   validatedAt    DateTime?
+  dueDate        DateTime
   description    String
   currency       String
+  accountBankId  Int
   pdfDocumentUrl String?
 
   companyId  Int

@@ -1,8 +1,16 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { JwtTwoFactorGuard } from '@auth/2FA/jwt-two-factor.guard';
+import {
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  UseGuards,
+} from '@nestjs/common';
 import { PrismaService } from '@prisma/prisma.service';
 import { I18NException } from '@utils/exception';
 
 @Controller('transactions')
+@UseGuards(JwtTwoFactorGuard)
 export class TransactionController {
   constructor(private prismaService: PrismaService) {}
 

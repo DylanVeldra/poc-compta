@@ -6,10 +6,6 @@ import { useState } from 'react';
 import Router from 'next/router';
 
 // Navigation
-import {
-  navigationItemsBackOffice,
-  navigationItemsFrontOffice,
-} from '../../var/navigation';
 import { motion } from 'framer-motion';
 
 interface MobileNavigationProps {
@@ -26,9 +22,7 @@ const MobileNavigationPrivatePages = (props: MobileNavigationProps) => {
   const [hoveringItem, setHoveringItem] = useState<hoveringItemType>();
   const dict = useLanguageDictionary();
 
-  const items = props.isAdmin
-    ? navigationItemsBackOffice
-    : navigationItemsFrontOffice;
+  const items: any[] = [];
 
   const logout = () => {
     sessionStorage.removeItem('access_token');

@@ -1,7 +1,8 @@
 import { Icon } from '@shared-components/icon';
 import { CustomIcon } from '@shared-components/icon';
+import { NavItem } from '../../shared-components/src/types/navigateur/NavItem';
 
-export const navigationItemsBackOffice = [
+export const navigationItemsBackOffice: NavItem[] = [
   {
     href: '/statistic-follow-up',
     icon: (pathname: string | undefined, hover: boolean) => (
@@ -13,6 +14,7 @@ export const navigationItemsBackOffice = [
       />
     ),
     isComingSoon: true,
+    i18n: 'dashboard',
   },
   {
     href: '/performance-management',
@@ -25,6 +27,7 @@ export const navigationItemsBackOffice = [
       />
     ),
     isComingSoon: false,
+    i18n: 'dashboard',
   },
   {
     href: '/withdrawal',
@@ -37,6 +40,7 @@ export const navigationItemsBackOffice = [
       />
     ),
     isComingSoon: false,
+    i18n: 'dashboard',
   },
   {
     href: '/deposit',
@@ -49,6 +53,7 @@ export const navigationItemsBackOffice = [
       />
     ),
     isComingSoon: false,
+    i18n: 'dashboard',
   },
   {
     href: '/history',
@@ -61,6 +66,7 @@ export const navigationItemsBackOffice = [
       />
     ),
     isComingSoon: false,
+    i18n: 'dashboard',
   },
   {
     href: '/registration-management',
@@ -68,6 +74,7 @@ export const navigationItemsBackOffice = [
       <Icon src="rs-user-add" className="mr-3 text-[16px]" />
     ),
     isComingSoon: false,
+    i18n: 'dashboard',
   },
   {
     href: '/user-management',
@@ -75,6 +82,7 @@ export const navigationItemsBackOffice = [
       <Icon src="rs-users" className="mr-3 text-[16px]" />
     ),
     isComingSoon: false,
+    i18n: 'dashboard',
   },
   {
     href: '/address-management',
@@ -82,6 +90,7 @@ export const navigationItemsBackOffice = [
       <Icon src="rs-wallet" className="mr-3 text-[16px]" />
     ),
     isComingSoon: false,
+    i18n: 'dashboard',
   },
   {
     href: '/tag-management',
@@ -89,6 +98,14 @@ export const navigationItemsBackOffice = [
       <Icon src="rs-label" className="mr-3 text-[16px]" />
     ),
     isComingSoon: false,
+    i18n: 'dashboard',
+  },
+  {
+    isSlicer: true,
+    href: '',
+    icon: () => <></>,
+    isComingSoon: false,
+    i18n: 'dashboard',
   },
   {
     href: '/profile',
@@ -101,10 +118,11 @@ export const navigationItemsBackOffice = [
       />
     ),
     isComingSoon: true,
+    i18n: 'dashboard',
   },
 ];
 
-export const navigationItemsFrontOffice = [
+export const navigationItemsFrontOffice: NavItem[] = [
   {
     href: '/dashboard',
     icon: (pathname: string, hover: boolean) => (
@@ -116,54 +134,79 @@ export const navigationItemsFrontOffice = [
       />
     ),
     isComingSoon: false,
+    i18n: 'dashboard',
   },
   {
-    href: '/performance-monitoring',
-    icon: (pathname: string, hover: boolean) => (
-      <CustomIcon
-        hover={hover}
-        iconName="chart-histogram"
-        className="mr-3 text-xl"
-        isSelected={pathname.includes('performance-monitoring')}
-      />
-    ),
-    isComingSoon: false,
-  },
-  {
-    href: '/withdrawal',
-    icon: (pathname: string, hover: boolean) => (
-      <CustomIcon
-        hover={hover}
-        iconName="arrow-left"
-        className="mr-3 text-xl"
-        isSelected={pathname.includes('withdrawal')}
-      />
-    ),
-    isComingSoon: false,
-  },
-  {
-    href: '/deposit',
+    href: '/incomes',
     icon: (pathname: string, hover: boolean) => (
       <CustomIcon
         hover={hover}
         iconName="arrow-right"
         className="mr-3 text-xl"
-        isSelected={pathname.includes('deposit')}
+        isSelected={pathname.includes('incomes')}
       />
     ),
     isComingSoon: false,
+    i18n: 'incomes',
   },
   {
-    href: '/history',
+    href: '/expenses',
+    icon: (pathname: string, hover: boolean) => (
+      <CustomIcon
+        hover={hover}
+        iconName="arrow-left"
+        className="mr-3 text-xl"
+        isSelected={pathname.includes('expenses')}
+      />
+    ),
+    isComingSoon: false,
+    i18n: 'expenses',
+  },
+    {
+    href: '/customers',
     icon: (pathname: string, hover: boolean) => (
       <CustomIcon
         hover={hover}
         iconName="history"
         className="mr-3 text-xl"
-        isSelected={pathname.includes('history')}
+        isSelected={pathname.includes('customers')}
       />
     ),
     isComingSoon: false,
+    i18n: 'customer',
+  },
+  {
+    href: '/banking',
+    icon: (pathname: string, hover: boolean) => (
+      <CustomIcon
+        hover={hover}
+        iconName="history"
+        className="mr-3 text-xl"
+        isSelected={pathname.includes('banking')}
+      />
+    ),
+    isComingSoon: false,
+    i18n: 'banking',
+  },
+  {
+    isSlicer: true,
+    href: '',
+    icon: () => <></>,
+    isComingSoon: false,
+    i18n: 'dashboard',
+  },
+  {
+    href: '/company',
+    icon: (pathname: string, hover: boolean) => (
+      <CustomIcon
+        hover={hover}
+        iconName="history"
+        className="mr-3 text-xl"
+        isSelected={pathname.includes('company')}
+      />
+    ),
+    isComingSoon: false,
+    i18n: 'company',
   },
   {
     href: '/profile',
@@ -176,6 +219,7 @@ export const navigationItemsFrontOffice = [
       />
     ),
     isComingSoon: false,
+    i18n: 'profile',
   },
   {
     href: '/faq',
@@ -183,5 +227,6 @@ export const navigationItemsFrontOffice = [
       <Icon src="rs-interrogation" className="mr-3 text-[16px]" />
     ),
     isComingSoon: true,
+    i18n: 'qna',
   },
 ];

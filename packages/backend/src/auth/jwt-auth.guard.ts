@@ -42,8 +42,6 @@ export class JwtAuthGuard implements CanActivate {
       throw new I18NException('INVALID_TOKEN_TYPE', 401, 'Invalid token type');
     }
 
-    console.log(dataToken);
-
     request.context = {
       twoFactorLogged: dataToken.twoFactorLogged,
       emailLogged: dataToken.emailLogged,
@@ -51,8 +49,6 @@ export class JwtAuthGuard implements CanActivate {
       companyId: dataToken.companyId,
       reqIq: 'todo',
     };
-
-    console.log(request.context);
 
     return true;
   }

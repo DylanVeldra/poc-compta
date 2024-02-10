@@ -1,1 +1,2 @@
-export type { default as DepositInformationsData } from "./DepositInformationsData";
+export * from "./DepositInformationsData";
+export * from "./Invoice";

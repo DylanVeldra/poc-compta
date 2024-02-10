@@ -228,27 +228,16 @@
     "match": "Passwords must match."
   },
   "accountManagement": {
-    "sidebar": [
-      "Dashboard",
-      "Performance monitoring",
-      "Withdrawal",
-      "Deposit",
-      "History",
-      "Profile",
-      "FAQ"
-    ],
-    "adminSidebar": [
-      "Statistic Follow Up",
-      "Performance Management",
-      "Withdrawal Requests",
-      "Deposit Requests",
-      "History",
-      "Registration Requests",
-      "User Management",
-      "Address Management",
-      "Tag Management",
-      "Profile"
-    ],
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "incomes": "Incomes",
+      "expenses": "Expenses",
+      "customer": "Customers",
+      "banking": "Banking",
+      "company": "Company",
+      "profile": "Profile",
+      "qna": "Q&A"
+    },
     "dashboard": {
       "subtitle": "My Details",
       "update": "Update my informations",
@@ -299,277 +288,88 @@
     "CGU": "GCU",
     "Licence": "License"
   },
-  "deposit": {
-    "NotificationOfDeposit": "Notification of deposit",
-    "checkWebsite1": "Make sure you are on the real",
-    "checkWebsite2": "site before making any deposit.",
-    "deposit": "Deposit",
-    "last": "Last deposit",
-    "next": "Next deposit",
-    "lastDeposits": "Last deposits",
-    "lastDepositsBackOffice": "Overview of pending deposits",
-    "network": "Network",
-    "publicId": "Deposit ID",
-    "notificationDate": "Request date",
-    "depositAmount": "Deposit amount",
-    "creditedAmount": "Credited amount",
-    "transactionId": "Transaction ID",
-    "notify": "Notify a deposit",
-    "chooseDepositAddress": "Choose a deposit address",
-    "copyAddress1": "Copy the",
-    "copyAddress2": "'s address on the targetted network",
-    "showQRCode": "Show QR Code",
-    "showAddress": "Show address",
-    "anyQuestion": "Any question ?",
-    "readTheGuide": "Read our step-by-step guide to notify a deposit",
-    "enterInformations": "Enter deposit informations",
-    "amount": "Deposit amount",
-    "minimum": "Minimum 1 000$",
-    "transactionIdExample": "Example: 0xBd1157740358d730dE08eC6eACC098",
-    "additionalInformations": "Additional informations",
-    "additionalInformationsExample": "Example : Transaction origin",
-    "grossAmount": "Gross deposit amount",
-    "fees": "Fees",
-    "netAmount": "Net credited amount",
+  "income": {
+    "pageTitle": "Your incomes",
+    "payer": "Payer",
+    "type": "Type",
+    "id": "Id",
+    "date": "Date",
+    "amount": "Amount",
     "status": "Status",
-    "token": "Token",
-    "seeMore": "Show more",
-    "requestStatus": "Request status",
-    "investor": "Investor",
-    "adminInterfaceTitleDeposits": "Deposit Management notifications",
-    "awaitingDeposits": "Awaiting Deposits",
-    "validatedDeposits": "Validated Deposits",
-    "refusedDeposits": "Refused Deposits",
-    "numberOfRequests": "Total requests",
-    "totalAmount": "Amount",
-    "refusalReason": "Eg: Inaccurate amount",
-    "rejectionReasonLabel": "Rejection Reason",
-    "pending": "Pending deposits",
-    "automaticallyComputed": "Automatically computed",
-    "noDeposits": "There are no deposits to display.",
-    "noDepositsToValidate": "There is no deposit left to validate",
-    "noOperations": "There are no operations to display",
-    "process": "Process",
-    "action": "Action",
-    "validationSuccessful": "Successful validation of the deposit ",
-    "validationFailure": "We have encountered an issue while validating the deposit ",
-    "rejectionSuccessful": "Successful rejection of the deposit ",
-    "rejectionFailure": "We have encountered an issue while rejecting the deposit ",
-    "sucessfullyRejected": "Sucessfully rejected",
-    "successfullyValidated": "Successfully validated",
-    "fixedFee": "Fixed Fees",
-    "percentFee": "Fees %",
-    "success": "Success !",
-    "yourDeposit": "Your deposit notification",
-    "of": "of",
-    "hasBeenTaken": "has been taken into account",
-    "tooltipAside": "Net amount, less fees, credited to your account",
-    "nbRequests": "Number of requests",
-    "recipientNetwork": "Recipient Network",
-    "theDeposit": "Deposit",
-    "hasBeenValidated": "has been validated",
-    "hasBeenRefused": "has been refused for the following reason",
-    "fixedFeeAnd": "of fixed fees as well as",
-    "percentFeeAdded": "of the transaction amount will be deduced from the deposit",
-    "defaultServerErrors": "Unknown error, Contact support",
-    "serverErrors": {
-      "USER_ADDRESS_NOT_FOUND": "You do not have an assigned deposit address. Contact support to assign you an address.",
-      "TRANSACTION_ID_ALREADY_USED": "This transaction ID has already been notified."
-    },
-    "depositAddress": "Deposit address",
-    "transactionHistory": "Operation history",
-    "timeline": {
-      "created": "Notification submitted",
-      "done": "Deposit made",
-      "refused": "Deposit refused by the administrator",
-      "cancelled": "Deposit cancelled"
+    "noIncome": "No income for the moment."
+  },
+  "invoice": {
+    "form": {
+      "customerId": {
+        "required": "Choose a customer to invoice"
+      },
+      "dueDate": {
+        "required": "Choose a due date"
+      },
+      "currency": {
+        "required": "Choose a currency"
+      },
+      "accountBankId": {
+        "required": "Choose an account to credit"
+      }
     }
   },
-  "txScan": {
-    "title": "TxScan",
-    "verifyTransaction": "Check the transaction",
-    "pendingScan": "Scan of the current transaction...",
-    "noProblem": "No problems detected.",
-    "badSmartContract": "The smart contract does not match.",
-    "badTransactionId": "The transaction id is not linked to any transaction on this blockchain.",
-    "lowerAmount": "The amount deposited is less than the amount found in the transaction.",
-    "higherAmount": "The amount deposited is greater than the amount found in the transaction.",
-    "and": "and",
-    "error": "error",
-    "warning": "warning",
-    "haveBeenDetected": "have been detected",
-    "problemDetected": "TxScan a détecté un problème dans la transaction",
-    "transactionExists": {
-      "TRANSACTION_NOT_FOUND": "The transaction id is not linked to any transaction on this blockchain.",
-      "CANT_CHECK_TRANSACTION_EXISTS": "Cannot check if the transaction exists."
-    },
-    "status": {
-      "TRANSACTION_INTERRUPTED": "The transaction was interrupted.",
-      "TRANSACTION_PENDING": "The transaction is being processed.",
-      "CANT_CHECK_STATUS": "Can't check status."
-    },
-    "receiver": {
-      "CANT_GET_RECEIVER": "Cannot check the destination address.",
-      "NOT_THE_SAME_RECEIVER": "Not the right destination address."
-    },
-    "rightToken": {
-      "CANT_GET_TOKEN": "Cannot check if the smart contract exists.",
-      "NOT_THE_SAME_TOKEN": "The smart contract does not match."
-    },
-    "amount": {
-      "CANT_GET_AMOUNT": "Cannot get amount",
-      "TRANSACTION_AMOUNT_IS_HIGHER": "The amount found on the blockchain is greater than the amount said to be deposited by the user.",
-      "TRANSACTION_AMOUNT_IS_LOWER": "The amount found on the blockchain is less than the amount said to be deposited by the user.",
-      "TRANSACTION_AMOUNT_IS_NEARLY_THE_SAME": "The amount found on the blockchain is not identical to the amount deposited by the user."
+  "invoiceRow": {
+    "form": {
+      "type": {
+        "required": "Choose a type"
+      },
+      "description": {
+        "required": "Choose of description"
+      },
+      "quantity": {
+        "required": "Choose of description"
+      },
+      "pricePerUnit": {
+        "required": "Choose of price per unit"
+      }
     }
   },
-  "fees": {
-    "amountBilled": "Amount of fees billed",
-    "timeline": {
-      "created": "Fees charged by the admin"
+  "customer": {
+    "form": {
+      "name": {
+        "required": "Name of the customer is required",
+        "label": "Name",
+        "placeholder": ""
+      },
+      "street": {
+        "required": "Billing street of the customer is required",
+        "label": "Street",
+        "placeholder": ""
+      },
+      "postalCode": {
+        "required": "Billing postal code of the customer is required",
+        "label": "Postal Code",
+        "placeholder": ""
+      },
+      "city": {
+        "required": "Billing city of the customer is required",
+        "label": "City",
+        "placeholder": ""
+      },
+      "country": {
+        "required": "Billing country of the customer is required",
+        "label": "Country",
+        "placeholder": ""
+      },
+      "isCompany": {
+        "label": "The customer is a company?"
+      },
+      "vatId": {
+        "label": "VAT Id",
+        "placeholder": "XXYYYYYY"
+      },
+      "registryId": {
+        "required": "Registry Id of customer is required",
+        "label": "Registry Id",
+        "placeholder": ""
+      }
     }
-  },
-  "withdrawal": {
-    "percentFee": "Fees",
-    "adminInterfaceTitleWithdrawals": "Withdrawal Management notification",
-    "rejectionReasonLabel": "Rejection Reason",
-    "transactionId": "Transaction ID",
-    "lastWithdrawals": "Last withdrawals",
-    "withdrawal": "Withdrawal",
-    "last": "Previous withdrawal",
-    "next": "Next withdrawal",
-    "request": "Request a withdrawal",
-    "network": "Destination network of the withdrawal",
-    "networkAddress": "Network address",
-    "yourWithdrawal": "Your withdrawal",
-    "yourWithdrawalOf": "Votre retrait of",
-    "haveBeenRejected": "was denied for the following reason:",
-    "depositLastMonth": "A deposit was made within the last 30 days.",
-    "pleaseWait": "Please wait",
-    "daysBeforeWithdrawal": "to request a new withdrawal.",
-    "pendingDepositWaiting": "A deposit is currently pending validation. Please cancel this deposit or wait 30 days after validation to make a new withdrawal.",
-    "readTheGuide": "Read our step-by-step guide to notify a withdrawal",
-    "withdrawalAmount": "Net requested amount",
-    "minimum": "Minimum 1000$",
-    "networkAddressExample": "Exemple:",
-    "netAmount": "Net amount asked",
-    "netAmountSolded": "Amount withdrawn from balance",
-    "validate": "Validate the request",
-    "refuse": "Reject the request",
-    "withdrawalId": "Withdrawal ID",
-    "grossAmount": "Gross withdrawal amount",
-    "obtainedAmount": "Received amount",
-    "goBack": "Go Back",
-    "pending": "Withdrawals to validate",
-    "date": "Estimated effective withdrawal date:",
-    "currentRequest": "Your withdrawal request, ",
-    "emitDate": "Withdrawal emit date",
-    "requestStatus": "Request status",
-    "noWithdrawals": "There are no withdrawals to display.",
-    "noWithdrawalsToValidate": "There are no withdrawals left to validate.",
-    "requestedAmount": "Amount requested",
-    "withdrawAmount": "Amount withdraw",
-    "awaitingWithdrawals": "Awaiting withdrawals",
-    "validatedWithdrawals": "Validated withdrawals",
-    "refusedWithdrawals": "Refused withdrawals",
-    "validationSuccessful": "Successful validation of the withdrawal ",
-    "validationFailure": "We have encountered an issue while validating the withdrawal ",
-    "rejectionSuccessful": "Successful rejection of the withdrawal ",
-    "rejectionFailure": "We have encountered an issue while rejecting the withdrawal ",
-    "sucessfullyRejected": "Sucessfully rejected",
-    "successfullyValidated": "Successfully validated",
-    "refusalReason": "Reason of rejection",
-    "missingValues": "It seems that the credited amount or the transaction ID are missing.",
-    "draft": "Your withdrawal request (draft)",
-    "draftMobile": "Your request to withdraw from the",
-    "cancel": "Cancel the request",
-    "update": "Update the request",
-    "fixedFee": "Fixed Fees",
-    "personnalAddress": "Personnal Address",
-    "examplePersonnalAddress": "Example:0xBd1157740358d730dE08eC6eA3ACC098f01749Bd",
-    "yourAddress": "Your address",
-    "netAmountAsked": "Net Amount asked",
-    "tooltipAside": "Gross amount debited from your account after adding the fees to the amount requested.",
-    "amountRemoved": "Amount removed from the balance",
-    "automaticallyComputed": "Automatically computed",
-    "publicId": "Withdrawal ID",
-    "networkAdress": "Network Address",
-    "recipientAddress": "Recipient Address",
-    "token": "Token",
-    "success": "Success !",
-    "yourRequestedWithdrawal": "Your withdrawal request",
-    "of": "ok",
-    "isInDraft": " is in draft",
-    "possibility": "You have the possibility to modify or cancel it until the 19th of the month.",
-    "status": "Statut",
-    "theWithdrawal": "The withdrawal",
-    "hasBeenAccepted": "has been accepted",
-    "transactionIdExample": "Example: 0xBd1157740358d730dE08eC6eACC09",
-    "withdrawalAbuse": "Withdrawal abuse",
-    "historyWithdrawalRequest": "History of withdrawal requests",
-    "requestDate": "Request Date",
-    "emitter": "Investor",
-    "rawRequestedAmount": "Gross debited amount",
-    "netRequestedAmount": "Net requested Amount",
-    "estimated": "Estimated",
-    "the": "the",
-    "at": "at",
-    "amountToWithdrawal": "Amount to withdrawal",
-    "oops": "Oops",
-    "successfullyDeletedContent": "has been deleted.",
-    "successfullyUpdatedContent": "has been updated.",
-    "updateError": "can't be updated",
-    "yourLastDeposit": "Your last deposit was made on",
-    "remaining": "You are left with",
-    "daysBeforeDeposit": "before you can request a new withdrawal.",
-    "pendingWithdrawalModal": {
-      "title": "Pending withdrawal",
-      "content": "You currently have a withdrawal pending validation or in draft, if you notify this deposit, the withdrawal will be cancelled or refused when the administrator validates the deposit.",
-      "cancel": "Cancel",
-      "continue": "Continue the deposit"
-    },
-    "deleteModal": {
-      "title": "Do you confirm the cancellation of the application?",
-      "ifYouConfirm": "If you confirm, your request to withdraw from",
-      "willBeDeleted": "will be deleted. You can always create a new one when you want.",
-      "return": "Return",
-      "deleteWithdrawal": "Cancel my request"
-    },
-    "validation": {
-      "emitterAddressRequired": "An address is mandatory",
-      "netRequestedAmountRequired": "Adding an amount is mandatory",
-      "netRequestedAmountMinAmount": "The minimum amount is $1000",
-      "netRequestedAmountBalance": "The amount entered must be less than your balance"
-    },
-    "youCannotApply": "You cannot apply for a withdrawal of",
-    "becauseYourBalance": "because your balance is",
-    "fixedFeeAnd": "of fixed fees as well as",
-    "percentFeeAdded": "of the transaction amount will be added to the withdrawal",
-    "timeline": {
-      "created": "Creation of the request",
-      "done": "Withdrawal made",
-      "refused": "Withdrawal refused by the administrator",
-      "cancelled": "Withdrawal cancelled",
-      "draft": "Withdrawal in draft"
-    }
-  },
-  "history": {
-    "history": "History",
-    "searchByOperationId": "Search by operation ID",
-    "operation": "Operation",
-    "operationId": "Operation ID",
-    "gross": "Gross amount",
-    "net": "Net amount",
-    "noOperations": "There are no operations to display.",
-    "idLabel": "Operation ID",
-    "operationDate": "Creation date",
-    "operationProcessedDate": "Processed on",
-    "operationEstimationDate": "Estimated completion date of",
-    "token": "Token",
-    "depositId": "Deposit ID",
-    "notificationDate": "Notification date",
-    "requestStatus": "Status",
-    "operationDetail": "Operation details"
   },
   "addressMenu": {
     "enable": "Enable",
@@ -756,6 +556,7 @@
       "Field(s): email already exists": "This email address is already in use. Please use another email address."
     },
     "INVALID_CREDENTIALS": "Your email address and/or password are not valid.",
+    "INTERNAL_SERVER_ERROR": "Internal server error.",
     "required": "Please fill in all mandatory fields",
     "TOO_MANY_REQUESTS": "Please wait 60 secondes before requesting another code.",
     "INVALID_CODE": "Verification not valid.",

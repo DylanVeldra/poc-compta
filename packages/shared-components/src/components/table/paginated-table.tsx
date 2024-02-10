@@ -4,7 +4,7 @@ import Table from './table';
 
 interface TableProps {
   headers: { [key: string]: string };
-  data: any[];
+  data: unknown[];
   customHeaders?: { [key: string]: (label: string) => ReactNode };
   customColumns?: { [key: string]: (object: any) => ReactNode };
   emptyMessage: string;

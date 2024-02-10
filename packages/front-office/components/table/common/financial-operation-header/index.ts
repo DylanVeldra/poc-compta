@@ -1,0 +1,1 @@
+export { default as FinancialOperationHeader } from "./financial-operation-header";

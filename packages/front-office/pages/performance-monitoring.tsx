@@ -5,6 +5,7 @@ import Head from "next/head";
 // Helpers
 import { PerformanceSummary } from "components/perfomance-summary";
 import { useRouter } from "next/router";
+import { navigationItemsFrontOffice } from "var/navigation";
 
 export default function PerformanceMonitoring() {
   const dict = useLanguageDictionary();
@@ -17,6 +18,7 @@ export default function PerformanceMonitoring() {
   return (
     <UserLayout
       pathname={router.pathname}
+      navItems={navigationItemsFrontOffice}
       title={dict.accountManagement.sidebar[1]}
     >
       <Head>

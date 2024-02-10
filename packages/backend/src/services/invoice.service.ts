@@ -44,13 +44,17 @@ export class InvoiceService {
         companyId,
         currency: 'EUR',
         customerId: input.customerId,
+        accountBankId: input.accountBankId,
+        dueDate: input.dueDate,
         rows: {
           createMany: {
             data: input.rows.map((row) => {
               return {
+                type: row.type,
                 description: row.description,
-                amount: row.amount,
+                quantity: row.quantity,
                 pricePerUnit: row.pricePerUnit,
+                discount: row.discount,
                 vat: 0, // todo
               };
             }),
@@ -95,7 +99,7 @@ export class InvoiceService {
         rows: {
           select: {
             description: true,
-            amount: true,
+            quantity: true,
             pricePerUnit: true,
           },
         },
@@ -212,15 +216,15 @@ export class InvoiceService {
     pagination: PaginationDto,
     {
       status,
-      // _userId,
+      companyId,
     }: {
       status?: INVOICE_STATUS;
-      userId?: number;
+      companyId: number;
     },
   ) {
     const filters = {
       where: {
-        // emitterId: userId ?? {},
+        companyId,
         status: status ?? {},
       } as Prisma.InvoiceWhereInput,
       orderBy: [
@@ -236,7 +240,7 @@ export class InvoiceService {
         rows: {
           select: {
             description: true,
-            amount: true,
+            quantity: true,
             pricePerUnit: true,
           },
         },

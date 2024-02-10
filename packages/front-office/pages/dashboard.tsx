@@ -17,6 +17,7 @@ import {
 } from "@shared-components/financial-operation-table";
 import { DateTime } from "luxon";
 import { TransactionSidePanel } from "@shared-components/transactions";
+import { navigationItemsFrontOffice } from "var/navigation";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -85,6 +86,7 @@ export default function Dashboard() {
   return (
     <UserLayout
       pathname={router.pathname}
+      navItems={navigationItemsFrontOffice}
       title={dict.accountManagement.sidebar[0]}
     >
       <Head>
@@ -101,7 +103,7 @@ export default function Dashboard() {
           {transactions?.length ? (
             <div className="mb-[22px] flex justify-end">
               <LinkButton
-                label={dict.deposit.seeMore}
+                label={"i18n todo label"}
                 onClick={() => router.push("/history")}
               />
             </div>
@@ -120,13 +122,13 @@ export default function Dashboard() {
                   : -1;
               })}
               headers={{
-                operation: dict.history.operation,
-                emitDate: dict.history.operationDate,
-                statusUpdateDate: dict.history.operationProcessedDate,
-                rawAmount: dict.history.gross,
-                netAmount: dict.history.net,
-                token: dict.deposit.token,
-                status: dict.deposit.status,
+                operation: "i18n todo operation",
+                emitDate: "i18n todo emitDate",
+                statusUpdateDate: "i18n todo statusUpdateDate",
+                rawAmount: "i18n todo rawAmount",
+                netAmount: "i18n todo netAmount",
+                token: "i18n todo token",
+                status: "i18n todo status",
               }}
             />
           </div>
@@ -140,12 +142,12 @@ export default function Dashboard() {
               })}
               emptyTableLabel={dict.dashboard.noOperations}
               headers={{
-                operation: dict.history.operation,
+                operation: "i18n todo operation",
                 publicId: "ID",
-                statusUpdateDate: dict.history.notificationDate,
-                netAmount: dict.history.net,
-                token: dict.deposit.token,
-                status: dict.deposit.status,
+                statusUpdateDate: "i18n todo statusUpdateDate",
+                netAmount: "i18n todo netAmount",
+                token: "i18n todo token",
+                status: "i18n todo status",
               }}
               openOperation={openOperation}
             />

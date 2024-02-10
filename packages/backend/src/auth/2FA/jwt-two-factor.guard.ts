@@ -46,7 +46,7 @@ export class JwtTwoFactorGuard implements CanActivate {
       );
     }
 
-    if (dataToken.user.twoFactorVerified == false) {
+    if (dataToken.user.twoFactorVerified !== true) {
       throw new I18NException(
         '2FA_NOT_VERIFIED',
         HttpStatus.UNAUTHORIZED,

@@ -1,25 +1,27 @@
 import { ChangeEvent, useState, ReactNode, useRef } from "react";
+import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
-interface CheckboxProps {
+interface CheckboxProps <T extends FieldValues>{
   label?: string;
-  name: string;
+  readonly name: Path<T>;
   checked?: boolean;
   disabled?: boolean;
   required?: boolean;
+  register: UseFormRegister<T>;
   isValueCorrect?: boolean;
   icon?: string | ReactNode;
   marginTop?: number;
   errorMessage?: string;
-  onChange: (checked: boolean, value: string) => void;
-  updateForm?: (v: string | number) => void;
+  updateForm: (name: keyof T, value: boolean) => void;
   toggleInputType?: (v: boolean) => void;
 }
 
-const Checkbox = (props: CheckboxProps) => {
+const Checkbox = <T extends FieldValues>(props: CheckboxProps<T>) => {
   const [checked, setChecked] = useState(props.checked);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    props.onChange(!checked, e.target.value);
+    // props.onChange(!checked, e.target.value);
+    props.updateForm(e.target.name, !checked);
     setChecked(!checked);
   };
 

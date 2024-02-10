@@ -228,27 +228,16 @@
     "match": "les mots de passe doivent correspondre"
   },
   "accountManagement": {
-    "sidebar": [
-      "Tableau de bord",
-      "Suivi des performances",
-      "Retrait",
-      "Dépôt",
-      "Historique",
-      "Profil",
-      "FAQ"
-    ],
-    "adminSidebar": [
-      "Suivi des statistiques",
-      "Gestion de la performance",
-      "Demandes de retrait",
-      "Demandes de dépôts",
-      "Historique",
-      "Gestion des inscriptions",
-      "Gestion des utilisateurs",
-      "Gestion des adresses",
-      "Gestion des tags",
-      "Profil"
-    ],
+    "sidebar": {
+      "dashboard": "Tableau de bord",
+      "incomes": "Revenus",
+      "expenses": "Dépenses",
+      "customer": "Clients",
+      "banking": "Banking",
+      "company": "Entreprise",
+      "profile": "Profile",
+      "qna": "FAQ"
+    },
     "dashboard": {
       "subtitle": "Mes informations",
       "update": "Mettre à jours mes informations",
@@ -299,276 +288,88 @@
     "CGU": "CGU",
     "Licence": "Licence"
   },
-  "deposit": {
-    "deposit": "Dépôt",
-    "checkWebsite1": "Vérifiez que vous êtes bien sur le vrai site",
-    "checkWebsite2": "avant de réaliser tout dépôt.",
-    "NotificationOfDeposit": "Notification de dépot",
-    "last": "Dépôt précédent",
-    "next": "Dépôt suivant",
-    "lastDeposits": "Derniers dépôts",
-    "lastDepositsBackOffice": "Vue d'ensemble des dépots en attente",
-    "network": "Réseau",
-    "publicId": "ID du dépôt",
-    "notificationDate": "Date de demande",
-    "depositAmount": "Montant déposé",
-    "creditedAmount": "Montant crédité",
-    "transactionId": "ID de transaction",
-    "notify": "Notifier un dépôt",
-    "chooseDepositAddress": "Choisir une adresse de dépot",
-    "copyAddress1": "Copier l'adresse",
-    "copyAddress2": " sur le réseau destinataire",
-    "showQRCode": "Voir le QR Code",
-    "showAddress": "Voir l'adresse",
-    "anyQuestion": "Une question ?",
-    "readTheGuide": "Retrouvez notre guide pas-à-pas pour demander un dépôt.",
-    "enterInformations": "Saisir les informations du dépôt",
-    "amount": "Montant à déposer",
-    "minimum": "Minimum 1 000$",
-    "transactionIdExample": "Exemple: 0xBd1157740358d730dE08eC6eACC098",
-    "additionalInformations": "Informations complémentaires",
-    "additionalInformationsExample": "Exemple : Origine de la transaction",
-    "grossAmount": "Montant brut déposé",
-    "fees": "Frais",
-    "netAmount": "Montant net crédité",
+  "income": {
+    "pageTitle": "Vos revenus",
+    "payer": "Payeur",
+    "type": "Type",
+    "id": "Identifiant",
+    "date": "date",
+    "amount": "Montant",
     "status": "Statut",
-    "token": "Token",
-    "seeMore": "Voir tout",
-    "requestStatus": "Statut de la requête",
-    "investor": "Investisseur",
-    "adminInterfaceTitleDeposits": "Gestion des notifications de dépôts",
-    "awaitingDeposits": "Dépôts en attente",
-    "validatedDeposits": "Dépôts validés",
-    "refusedDeposits": "Dépôts refusés",
-    "numberOfRequests": "Nombre de demandes",
-    "totalAmount": "Montant",
-    "refusalReason": "Exemple : Somme inexacte",
-    "rejectionReasonLabel": "Motif du refus",
-    "pending": "Dépôts à valider",
-    "automaticallyComputed": "Calculé automatiquement",
-    "noDeposits": "Vous n'avez aucun dépôt à afficher.",
-    "noDepositsToValidate": "Aucun dépôt à valider",
-    "noOperations": "Vous n'avez aucune opération à afficher",
-    "process": "Traiter",
-    "action": "Action",
-    "validationSuccessful": "Succès de la validation du dépôt ",
-    "validationFailure": "Nous avons rencontré un problème lors de la validation du dépôt ",
-    "rejectionSuccessful": "Succès du refus du dépôt ",
-    "rejectionFailure": "Nous avons rencontré un problème lors du refus du dépôt ",
-    "sucessfullyRejected": "Rejeté avec succès",
-    "successfullyValidated": "Validé avec succès",
-    "fixedFee": "Frais fixes",
-    "percentFee": "Frais %",
-    "success": "Succès !",
-    "yourDeposit": "Votre notification de dépôt",
-    "of": "de",
-    "hasBeenTaken": "a bien été prise en compte",
-    "tooltipAside": "Montant net, déduit des frais, crédité sur votre compte",
-    "nbRequests": "Nombre de demande",
-    "recipientNetwork": "Réseau destinataire",
-    "theDeposit": "Le dépôt",
-    "hasBeenValidated": "a bien été validé.",
-    "hasBeenRefused": "a bien été refusé pour le motif suivant",
-    "fixedFeeAnd": "de frais fixes ainsi que",
-    "percentFeeAdded": "du montant de la transaction seront déduits du dépôt",
-    "defaultServerErrors": "Erreur inconnue, contacter le support",
-    "serverErrors": {
-      "USER_ADDRESS_NOT_FOUND": "Vous n'avez pas d'adresse de dépôt attribuée. Contactez le support pour vous attribuer une adresse.",
-      "TRANSACTION_ID_ALREADY_USED": "Cet ID de transaction a déjà été notifié."
-    },
-    "depositAddress": "Adresse du dépôt",
-    "transactionHistory": "Historique de l'opération",
-    "timeline": {
-      "created": "Création de la notification",
-      "done": "Dépôt effectué",
-      "refused": "Dépôt refusé par l'admin",
-      "cancelled": "Dépôt annulé"
+    "noIncome": "Aucune rentrée d'argent pour le moment"
+  },
+  "invoice": {
+    "form": {
+      "customerId": {
+        "required": "Choisissez un client à facturer"
+      },
+      "dueDate": {
+        "required": "Choisissez une date de paiement"
+      },
+      "currency": {
+        "required": "Choisissez une monnaie"
+      },
+      "accountBankId": {
+        "required": "Choisissez le compte crédité"
+      }
     }
   },
-  "txScan": {
-    "title": "TxScan",
-    "verifyTransaction": "Vérifier la transaction",
-    "pendingScan": "Scan de la transaction en cours...",
-    "noProblem": "Aucun problème detecté.",
-    "badSmartContract": "Le smart contract ne correspond pas.",
-    "badTransactionId": "L'id de transaction n'est liée à aucune transaction sur cette blockchain.",
-    "lowerAmount": "Le montant déposé est inférieur à la somme retrouvée dans la transaction.",
-    "higherAmount": "Le montant déposé est inférieur à la somme retrouvée dans la transaction.",
-    "and": "et",
-    "error": "erreur",
-    "warning": "avertissement",
-    "haveBeenDetected": "ont été détectées.",
-    "problemDetected": "TxScan a détecté un problème dans la transaction",
-    "transactionExists": {
-      "TRANSACTION_NOT_FOUND": "L'id de transaction n'est liée à aucune transaction sur cette blockchain.",
-      "CANT_CHECK_TRANSACTION_EXISTS": "Ne peut pas vérifier si la transaction existe."
-    },
-    "status": {
-      "TRANSACTION_INTERRUPTED": "La transaction a été intérompu.",
-      "TRANSACTION_PENDING": "La transaction est en cours de traitement.",
-      "CANT_CHECK_STATUS": "Ne peut pas vérifier le status."
-    },
-    "receiver": {
-      "CANT_GET_RECEIVER": "Ne peut pas vérifier l'adresse de destination.",
-      "NOT_THE_SAME_RECEIVER": "Pas la bonne adresse de destination."
-    },
-    "rightToken": {
-      "CANT_GET_TOKEN": "Ne peut pas vérifier si le smart contract existe.",
-      "NOT_THE_SAME_TOKEN": "Le smart contract ne correspond pas."
-    },
-    "amount": {
-      "CANT_GET_AMOUNT": "Ne peut pas vérifier le montant",
-      "TRANSACTION_AMOUNT_IS_HIGHER": "Le montant retrouvé sur la blockchain est supérieur au montant dit déposé par l'utilisateur.",
-      "TRANSACTION_AMOUNT_IS_LOWER": "Le montant retrouvé sur la blockchain est inférieur au montant dit déposé par l'utilisateur.",
-      "TRANSACTION_AMOUNT_IS_NEARLY_THE_SAME": "Le montant retrouvé sur la blockchain n'est pas identique au montant dit déposé par l'utilsiateur."
+  "invoiceRow": {
+    "form": {
+      "type": {
+        "required": "Choisissez un type de service"
+      },
+      "description": {
+        "required": "Mettez une description"
+      },
+      "quantity": {
+        "required": "Choisissez une quantité"
+      },
+      "pricePerUnit": {
+        "required": "Choisissez un prix par unité"
+      }
     }
   },
-  "withdrawal": {
-    "percentFee": "Frais",
-    "adminInterfaceTitleWithdrawals": "Gestion des notifications de retrait",
-    "transactionId": "ID de transaction",
-    "lastWithdrawals": "Derniers retraits",
-    "historyWithdrawalRequest": "Historique des demandes de retrait",
-    "withdrawal": "Retrait",
-    "last": "Retrait précédent",
-    "next": "Retrait suivant",
-    "request": "Demander un retrait",
-    "network": "Réseau destinataire",
-    "networkAddress": "Adresse du réseau",
-    "yourWithdrawal": "Votre retrait",
-    "yourWithdrawalOf": "Votre retrait de",
-    "haveBeenRejected": "a été refusé pour le motif suivant :",
-    "depositLastMonth": "Un dépôt a été réalisé dans les 30 derniers jours.",
-    "pleaseWait": "Veuillez attendre",
-    "daysBeforeWithdrawal": "jours pour demander un nouveau retrait.",
-    "pendingDepositWaiting": "Un dépôt est actuellement en attente de validation. Veuillez annuler ce dépôt ou attendre 30 jours après validation de celui-ci pour réaliser un nouveau retrait.",
-    "readTheGuide": "Retrouvez notre guide pas-à-pas pour demander un retrait.",
-    "netRequestedAmount": "Montant demandé",
-    "minimum": "Minimum 1000$",
-    "networkAddressExample": "Exemple:",
-    "grossAmount": "Montant brut retiré",
-    "netAmount": "Montant net demandé",
-    "netAmountSolded": "Montant retiré du solde",
-    "validate": "Valider la demande",
-    "refuse": "Refuser la demande",
-    "withdrawalId": "ID du retrait",
-    "obtainedAmount": "Montant reçu",
-    "goBack": "Retour",
-    "pending": "Retraits à valider",
-    "date": "Date de retrait effectif estimé:",
-    "currentRequest": "Votre demande de retrait du",
-    "emitDate": "Date de la demande",
-    "requestStatus": "Statut de la demande",
-    "noWithdrawals": "Vous n'avez aucun retrait à afficher.",
-    "noWithdrawalsToValidate": "Aucun retrait à valider.",
-    "withdrawalAmount": "Montant net demandé",
-    "awaitingWithdrawals": "Retraits en attente",
-    "validatedWithdrawals": "Retraits validés",
-    "refusedWithdrawals": "Retraits refusés",
-    "validationSuccessful": "Succès de la validation du retrait ",
-    "validationFailure": "Nous avons rencontré un problème lors de la validation du retrait ",
-    "rejectionSuccessful": "Succès du refus du retrait ",
-    "rejectionFailure": "Nous avons rencontré un problème lors du refus du retrait ",
-    "sucessfullyRejected": "Rejeté avec succès",
-    "successfullyValidated": "Validé avec succès",
-    "refusalReason": "Motif de refus",
-    "missingValues": "Il semble que l'ID de transaction ou le montant à créditer sont manquants.",
-    "draft": "Votre demande de retrait en brouillon",
-    "draftMobile": "Votre demande de retrait du",
-    "cancel": "Annuler la demande",
-    "update": "Valider les modifications",
-    "fixedFee": "Frais fixes",
-    "personnalAddress": "Adresse personnelle",
-    "amountRemoved": "Montant retiré du solde",
-    "examplePersonnalAddress": "Example: 0xBd1157740358d730dE08eC6eA3ACC098f01749Bd",
-    "yourAddress": "Votre adresse",
-    "netAmountAsked": "Montant net demandé",
-    "tooltipAside": "Montant brut débité sur votre compte une fois les frais ajoutés au montant demandé.",
-    "automaticallyComputed": "Calculé automatiquement",
-    "publicId": "ID du retrait",
-    "requestDate": "Date de demande",
-    "networkAdress": "Réseau de l'adresse",
-    "recipientAddress": "Adresse destinataire",
-    "token": "Token",
-    "success": "Succès !",
-    "yourRequestedWithdrawal": "Votre demande de retrait",
-    "of": "de",
-    "isInDraft": " est en brouillon.",
-    "possibility": "Vous avez la possibilité de la modifier ou l'annuler jusqu'au 19 du mois.",
-    "status": "Statut",
-    "emitter": "Investisseur",
-    "theWithdrawal": "Le retrait",
-    "hasBeenAccepted": "a bien été accepté.",
-    "hasBeenRejected": "a bien été refusée pour le motif suivant ",
-    "transactionIdExample": "Exemple: 0xBd1157740358d730dE08eC6eACC098",
-    "withdrawalAbuse": "Abus de retrait",
-    "rejectionReasonLabel": "Motif du refus",
-    "estimated": "Éstimé",
-    "the": "le",
-    "at": "au",
-    "oops": "Oops",
-    "rawRequestedAmount": "Montant brut débité",
-    "amountToWithdrawal": "Montant à retirer",
-    "successfullyDeletedContent": "a bien été supprimée.",
-    "successfullyUpdatedContent": "a bien été modifée.",
-    "updateError": "N'a pas pu être mis a jour",
-    "yourLastDeposit": "Votre dernier dépôt date du",
-    "remaining": "Il vous reste",
-    "daysBeforeDeposit": "avant de pouvoir demander un nouveau retrait.",
-    "deleteModal": {
-      "title": "Confirmez-vous l'annulation de la demande ?",
-      "ifYouConfirm": "Si vous confirmez, votre demande de retrait de",
-      "willBeDeleted": "sera supprimée. Vous pourrez toujours en créer une nouvelle quand vous le souhaitez.",
-      "return": "Retour",
-      "deleteWithdrawal": "Annuler ma demande"
-    },
-    "pendingWithdrawalModal": {
-      "title": "Retrait en cours",
-      "content": "Vous avez actuellement un retrait en attente de validation ou en brouillon, si vous notifiez ce dépot, le retrait sera annulé ou refusé au moment de la validation du dépot par l'administrateur.",
-      "cancel": "Annuler",
-      "continue": "Continuer le dépôt"
-    },
-    "validation": {
-      "emitterAddressRequired": "L'adresse personnelle est obligatoire",
-      "netRequestedAmountRequired": "La saisie d'un montant à retirer est obligatoire",
-      "netRequestedAmountMinAmount": "Le montant minimum est de 1000$",
-      "netRequestedAmountBalance": "Le montant saisie doit être inférieur à votre balance"
-    },
-    "youCannotApply": "Vous ne pouvez pas faire une demande de retrait de",
-    "becauseYourBalance": "car votre solde est de",
-    "fixedFeeAnd": "de frais fixes ainsi que",
-    "percentFeeAdded": "du montant de la transaction seront rajoutés au retrait",
-    "timeline": {
-      "created": "Création de la demande",
-      "done": "Retrait effectué",
-      "refused": "Retrait refusé par l'admin",
-      "cancelled": "Retrait annulé",
-      "draft": "Retrait mis en brouillon"
+  "customer": {
+    "form": {
+      "name": {
+        "required": "Le nom du client est obligatoire",
+        "label": "Nom",
+        "placeholder": ""
+      },
+      "street": {
+        "required": "La rue de facturation du client est obligatoire",
+        "label": "Rue",
+        "placeholder": ""
+      },
+      "postalCode": {
+        "required": "Le code postal de facturation du client est obligatoire",
+        "label": "Code Postal",
+        "placeholder": ""
+      },
+      "city": {
+        "required": "La ville de facturation du client est obligatoire",
+        "label": "Ville",
+        "placeholder": ""
+      },
+      "country": {
+        "required": "Le pays de facturation du client est obligatoire",
+        "label": "Pays",
+        "placeholder": ""
+      },
+      "isCompany": {
+        "label": "Le client est une entreprise ?"
+      },
+      "vatId": {
+        "label": "Numéro de TVA",
+        "placeholder": "XXYYYYYY"
+      },
+      "registryId": {
+        "required": "Le numéro de registre du client est obligatoire",
+        "label": "Numéro de Registre de l'entreprise",
+        "placeholder": ""
+      }
     }
-  },
-  "fees": {
-    "amountBilled": "Montant des frais facturés",
-    "timeline": {
-      "created": "Frais facturé par l'admin"
-    }
-  },
-  "history": {
-    "history": "Historique",
-    "searchByOperationId": "Rechercher par ID de l'opération",
-    "operation": "Opération",
-    "operationId": "ID de l'opération",
-    "gross": "Montant brut",
-    "net": "Montant net",
-    "noOperations": "Vous n'avez aucune transaction à afficher.",
-    "idLabel": "ID de l'opération",
-    "operationDate": "Date de création",
-    "operationProcessedDate": "Date de réalisation",
-    "operationEstimationDate": "Date de réalisation estimé au",
-    "token": "Token",
-    "depositId": "ID du dépôt",
-    "notificationDate": "Date de la notification",
-    "requestStatus": "Status",
-    "operationDetail": "Détail de l'opération"
   },
   "address": {
     "addedp1": "L'adresse",
@@ -759,6 +560,7 @@
       "Field(s): email already exists": "Cette adresse électronique est déjà utilisée. Veuillez utiliser une autre adresse électronique."
     },
     "INVALID_CREDENTIALS": "Votre adresse email et/ou votre mot de passe ne sont pas valides.",
+    "INTERNAL_SERVER_ERROR": "Erreur interne au serveur.",
     "required": "Veuillez renseigner tous les champs obligatoires",
     "TOO_MANY_REQUESTS": "Veuillez attendre 60 secondes avant de reitérer votre demande.",
     "INVALID_CODE": "Code de vérification invalide.",

@@ -5,10 +5,11 @@ import { useLanguageDictionary } from "@shared-hooks";
 import Router from "next/router";
 import { Icon } from "@shared-components/icon";
 import { Navigation } from "@shared-components/navigation";
+import { NavItem } from "src/var/navigation";
 
 interface SideBarProps {
   pathname: string;
-  isAdmin?: boolean;
+  navItems: NavItem[];
 }
 
 const Sidebar = (props: SideBarProps) => {
@@ -25,7 +26,7 @@ const Sidebar = (props: SideBarProps) => {
     <div className="hidden w-[267px] bg-white dark:bg-dark-gray lg:flex flex-col justify-between pt-8">
       <AppIcon />
       <div className="h-full flex items-start relative">
-        <Navigation pathname={props.pathname} isAdmin={props.isAdmin} />
+        <Navigation pathname={props.pathname} navItems={props.navItems}/>
       </div>
       <div
         className="flex items-center justify-center mb-[26px] cursor-pointer"

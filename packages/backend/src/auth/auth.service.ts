@@ -13,7 +13,7 @@ import { sign, verify } from 'jsonwebtoken';
 
 export enum TokenType {
   ACCESS = 'ACCESS',
-  REFRESH = 'ACCESS',
+  REFRESH = 'REFRESH',
 }
 
 @Injectable()

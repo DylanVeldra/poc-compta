@@ -2,7 +2,6 @@ import { UserCreateDto } from '@users/user.dto';
 import { I18NResponse } from '@utils/response.dto';
 import {
   Controller,
-  UseGuards,
   Post,
   HttpCode,
   HttpStatus,

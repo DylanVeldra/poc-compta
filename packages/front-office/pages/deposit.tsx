@@ -27,6 +27,7 @@ import {
 } from "@shared-components/financial-operation-table";
 import { PendingWithdrawalModal } from "@shared-components/modals";
 import { TransactionSidePanel } from "@shared-components/transactions";
+import { navigationItemsFrontOffice } from "var/navigation";
 
 export default function Deposit() {
   const router = useRouter();
@@ -167,6 +168,7 @@ export default function Deposit() {
     <UserLayout
       title={dict.deposit.NotificationOfDeposit}
       pathname={router.pathname}
+      navItems={navigationItemsFrontOffice}
       onProfileLoaded={onProfileLoaded}
     >
       <ToastGenerator ref={toastRef} />

@@ -17,6 +17,7 @@ import {
 } from "@shared-components/financial-operation-table";
 import { DateTime } from "luxon";
 import { TransactionSidePanel } from "@shared-components/transactions";
+import { navigationItemsFrontOffice } from "var/navigation";
 
 export default function History() {
   const [transactions, setTransactions] = useState(
@@ -85,6 +86,7 @@ export default function History() {
     <UserLayout
       title={dict.history.history}
       pathname={router.pathname}
+      navItems={navigationItemsFrontOffice}
       onProfileLoaded={onProfileLoaded}
     >
       <Head>

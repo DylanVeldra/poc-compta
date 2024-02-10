@@ -5,6 +5,7 @@ import { User } from "@shared-types";
 import { UpdateAntiphishingCode } from "components/user-profile-form";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { navigationItemsFrontOffice } from "var/navigation";
 
 const ChangeAntiphishing = () => {
   const dict = useLanguageDictionary();
@@ -16,6 +17,7 @@ const ChangeAntiphishing = () => {
   return (
     <UserLayout
       pathname={router.pathname}
+      navItems={navigationItemsFrontOffice}
       title={
         <div
           className="flex"

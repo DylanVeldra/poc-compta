@@ -44,6 +44,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { RestrictedWithdrawal } from "components/restricted-withdrawal";
 import { TransactionSidePanel } from "@shared-components/transactions";
+import { navigationItemsFrontOffice } from "var/navigation";
 
 export default function Withdrawal() {
   const router = useRouter();
@@ -383,6 +384,7 @@ export default function Withdrawal() {
   return (
     <UserLayout
       title={dict.withdrawal.withdrawal}
+      navItems={navigationItemsFrontOffice}
       pathname={router.pathname}
       onProfileLoaded={onProfileLoaded}
     >

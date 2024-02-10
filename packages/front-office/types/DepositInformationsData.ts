@@ -1,4 +1,4 @@
-export default interface DepositInformationsData {
+export interface DepositInformationsData {
   emptyFields?: () => boolean;
   idAddress: number;
   rawDepositedAmount: number;

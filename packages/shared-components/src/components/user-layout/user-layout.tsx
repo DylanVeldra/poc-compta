@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 // Hooks
 import { useProfile } from '@shared-hooks';
 import { motion } from 'framer-motion';
+import { NavItem } from 'src/var/navigation';
 
 interface UserLayoutProps {
   title: string | ReactNode;
@@ -13,7 +14,7 @@ interface UserLayoutProps {
   children: ReactNode;
   isOnProfile?: boolean;
   onProfileLoaded?: (user: any) => Promise<void> | void;
-  isAdmin?: boolean;
+  navItems: NavItem[];
   goBackwards?: string;
 }
 
@@ -23,8 +24,6 @@ export default function UserLayout(props: UserLayoutProps) {
 
   useEffect(() => {
     if (isLoading) return;
-
-    console.log(user)
     
     if (user === undefined || accessToken === undefined) {
       router.push('/login');
@@ -56,14 +55,13 @@ export default function UserLayout(props: UserLayoutProps) {
 
   return (
     <Layout>
-      <Sidebar pathname={props.pathname} isAdmin={props.isAdmin} />
-      <div className="w-full h-100 overflow-y-auto p-[16px] md:p-[30px] sm:p-[46px] flex flex-col">
+      <Sidebar pathname={props.pathname} navItems={props.navItems} />
+      <div className="w-full h-100 overflow-y-auto p-[16px] md:p-[64px] sm:p-[46px] flex flex-col">
         <ProtectedPagesHeader
           pathname={props.pathname}
           title={props.title}
           isOnProfile={props.isOnProfile}
           goBackwards={props.goBackwards}
-          isAdmin={props.isAdmin}
         />
         <div className="flex justify-center">
           <motion.div

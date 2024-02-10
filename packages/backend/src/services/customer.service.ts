@@ -1,12 +1,10 @@
 // import { UserPayloadDto } from '@auth/dto/auth.dto';
-import { HttpStatus, Injectable } from '@nestjs/common';
-import { INVOICE_STATUS, Prisma } from '@prisma/client';
+import { Injectable } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from '@prisma/prisma.service';
 import { I18NException } from '@utils/exception';
 import { PaginationDto } from '@utils/pipes/pagination';
-import { CreateCompanyDTO } from 'src/dto/company.dto';
 import { CreateCustomerDTO } from 'src/dto/customer.dto';
-import { SaltEdgeService } from './saltEdge.service';
 // import { PaginationDto } from '@utils/pipes/pagination';
 // import { EmailService } from '@email/email.service';
 
@@ -35,5 +33,32 @@ export class CustomerService {
     return {
       customerId: createdCustomer.id,
     };
+  }
+
+  async getAllCustomers(
+    pagination: PaginationDto,
+    {
+      companyId,
+    }: {
+      companyId: number;
+    },
+  ) {
+    if (!companyId) {
+      throw new I18NException('COMPANY_ID_MISSING', 400);
+    }
+    const filters = {
+      where: {
+        companyId,
+      } as Prisma.CustomerWhereInput,
+      orderBy: [
+        { createdAt: 'desc' },
+      ] as Prisma.Enumerable<Prisma.CustomerOrderByWithRelationInput>,
+    };
+    const count = await this.prismaService.customer.count(filters);
+    const data = await this.prismaService.customer.findMany({
+      ...pagination.prisma,
+      ...filters,
+    });
+    return pagination.response(data, count);
   }
 }

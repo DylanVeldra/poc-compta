@@ -1,3 +1,4 @@
+import { JwtTwoFactorGuard } from '@auth/2FA/jwt-two-factor.guard';
 import {
   Body,
   Controller,
@@ -9,6 +10,7 @@ import {
   Post,
   Query,
   StreamableFile,
+  UseGuards,
 } from '@nestjs/common';
 import { REQUEST } from '@nestjs/core';
 import { INVOICE_STATUS } from '@prisma/client';
@@ -16,13 +18,13 @@ import { PrismaService } from '@prisma/prisma.service';
 import { I18NException } from '@utils/exception';
 import { Pagination, PaginationDto } from '@utils/pipes/pagination';
 import { RequestContext } from '@utils/types';
-import { put } from '@vercel/blob';
 import { CreateInvoiceDTO, GetInvoicesQueryDto } from 'src/dto/invoice.dto';
 import { generateInvoice } from 'src/services/invoice-pdf.service';
 import { InvoiceService } from 'src/services/invoice.service';
 // import { AppService } from './app.service';
 
 @Controller('invoices')
+@UseGuards(JwtTwoFactorGuard)
 export class InvoiceController {
   constructor(
     @Inject(REQUEST) private readonly requestContext: RequestContext,
@@ -44,7 +46,10 @@ export class InvoiceController {
     @Pagination() pagination: PaginationDto,
     @Query() params: GetInvoicesQueryDto,
   ) {
-    return this.invoiceService.getAllInvoices(pagination, params);
+    return this.invoiceService.getAllInvoices(pagination, {
+      ...params,
+      companyId: this.requestContext.context.companyId,
+    });
   }
 
   @Get(':id')
@@ -60,7 +65,7 @@ export class InvoiceController {
     const transaction = await this.prismaService.transaction.findUnique({
       where: {
         id: transactionId,
-        companyId: 1,
+        companyId: this.requestContext.context.companyId,
       },
       select: {
         id: true,
@@ -78,7 +83,7 @@ export class InvoiceController {
     const invoice = await this.prismaService.invoice.findUnique({
       where: {
         id: invoiceId,
-        companyId: 1,
+        companyId: this.requestContext.context.companyId,
       },
       select: {
         id: true,
@@ -93,11 +98,11 @@ export class InvoiceController {
       );
     }
 
-    this.prismaService.invoicesOnTransactions.create({
+    await this.prismaService.invoicesOnTransactions.create({
       data: {
         invoiceId,
         transactionId,
-        assignedBy: 1,
+        assignedBy: this.requestContext.context.user.id,
       },
     });
   }

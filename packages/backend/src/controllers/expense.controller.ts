@@ -1,3 +1,4 @@
+import { JwtTwoFactorGuard } from '@auth/2FA/jwt-two-factor.guard';
 import {
   Body,
   Controller,
@@ -7,6 +8,7 @@ import {
   Post,
   Put,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -16,6 +18,7 @@ import { put } from '@vercel/blob';
 import { UpsertExpenseDTO } from 'src/dto/expense.dto';
 
 @Controller('expenses')
+@UseGuards(JwtTwoFactorGuard)
 export class ExpenseController {
   constructor(private prismaService: PrismaService) {}
 

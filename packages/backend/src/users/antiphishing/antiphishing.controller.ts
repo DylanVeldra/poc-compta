@@ -45,8 +45,10 @@ export class AntiphishingController {
     type: I18NResponse,
     description: 'The antiphishing code',
   })
-  async getAntiphishingCode(user: UserDto) {
-    const code = await this.antiphishingService.getByUserId(user.id);
+  async getAntiphishingCode() {
+    const code = await this.antiphishingService.getByUserId(
+      this.requestContext.context.user.id,
+    );
     return new I18NResponse('OK', code!.antiPhishingCode);
   }
 

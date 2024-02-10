@@ -1,11 +1,12 @@
 import { Icon } from "@shared-components/icon";
 import { ReactNode, useRef } from "react";
 
-import { ShowPassword } from "../show-password";
+import { ShowPassword } from "../../show-password";
+import { FieldValues, Path, PathValue, UseFormRegister } from "react-hook-form";
 
-interface InputProps {
+interface InputProps <T extends FieldValues>{
   label?: string;
-  name: string;
+  readonly name: Path<T>;
   type?: string;
   defaultValue?: string;
   placeholder?: string;
@@ -18,16 +19,15 @@ interface InputProps {
   marginTop?: number;
   errorMessage?: string;
   errorIcon?: boolean;
-  onChange?: (v: string | number) => void;
   onBlur?: () => void;
   toggleInputType?: (v: boolean) => void;
-  updateForm: (v: string, x: string) => void;
+  updateForm: (key: Path<T>, value: unknown) => void;
   optionalLabel?: string;
-  register: any;
+  register: UseFormRegister<T>;
   errors: any;
 }
 
-export default function ReactHookInput(props: InputProps) {
+export default function ReactHookInput<T extends FieldValues>(props: InputProps<T>) {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const toggleInputType = (show: boolean) => {
@@ -37,10 +37,6 @@ export default function ReactHookInput(props: InputProps) {
     } else if (input && !show) {
       input.type = "password";
     }
-  };
-
-  const updateFormValues = (e: any) => {
-    props.updateForm(e.target.name, e.target.value);
   };
 
   const optional = () => (
@@ -63,7 +59,7 @@ export default function ReactHookInput(props: InputProps) {
           type={props.type || "text"}
           name={props.name}
           onBlur={props.onBlur}
-          onChange={updateFormValues}
+          onChange={(e) => props.updateForm(props.name, e.target.value) }
           placeholder={props.placeholder || ""}
           required={props.required}
           minLength={props.minlength}

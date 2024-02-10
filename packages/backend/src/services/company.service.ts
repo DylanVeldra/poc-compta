@@ -1,11 +1,9 @@
 // import { UserPayloadDto } from '@auth/dto/auth.dto';
-import { HttpStatus, Injectable } from '@nestjs/common';
-import { INVOICE_STATUS, Prisma } from '@prisma/client';
+import { Injectable } from '@nestjs/common';
 import { PrismaService } from '@prisma/prisma.service';
-import { I18NException } from '@utils/exception';
-import { PaginationDto } from '@utils/pipes/pagination';
 import { CreateCompanyDTO } from 'src/dto/company.dto';
 import { SaltEdgeService } from './saltEdge.service';
+import { User } from '@prisma/client';
 // import { PaginationDto } from '@utils/pipes/pagination';
 // import { EmailService } from '@email/email.service';
 
@@ -16,7 +14,7 @@ export class CompanyService {
     private saltEdgeService: SaltEdgeService,
   ) {}
 
-  async createCompany(input: CreateCompanyDTO) {
+  async createCompany(input: CreateCompanyDTO, userId: number) {
     // const user = await this.prismaService.user.findFirstOrThrow({
     //   where: {
     //     id: _userId,
@@ -34,6 +32,31 @@ export class CompanyService {
         id: true,
       },
     });
+
+    await this.prismaService.usersOnCompanies.create({
+      data: {
+        userId,
+        companyId: createdCompany.id,
+      },
+    });
+
+    const user = (await this.prismaService.user.findFirst({
+      where: {
+        id: userId,
+      },
+      select: {
+        defaultCompany: true,
+      },
+    })) as User;
+
+    if (user.defaultCompany === 0) {
+      await this.prismaService.user.update({
+        where: { id: userId },
+        data: {
+          defaultCompany: createdCompany.id,
+        },
+      });
+    }
 
     const customer = await this.saltEdgeService.createCustomer(
       `${createdCompany.id}`,

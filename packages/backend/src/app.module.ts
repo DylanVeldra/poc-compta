@@ -13,6 +13,10 @@ import { CompanyService } from './services/company.service';
 import { InvoiceService } from './services/invoice.service';
 import { SaltEdgeService } from './services/saltEdge.service';
 import { SyncTransactionService } from './services/syncTransaction.service';
+import { CustomerController } from './controllers/customer.controller';
+import { CustomerService } from './services/customer.service';
+import { ConfigModule } from '@nestjs/config';
+import authConfig from '@config/auth.config';
 
 @Module({
   imports: [
@@ -20,6 +24,9 @@ import { SyncTransactionService } from './services/syncTransaction.service';
     UserModule,
     AuthModule,
     EmailModule,
+    ConfigModule.forRoot({
+      load: [authConfig],
+    }),
     ScheduleModule.forRoot(),
   ],
   controllers: [
@@ -27,6 +34,7 @@ import { SyncTransactionService } from './services/syncTransaction.service';
     InvoiceController,
     TransactionController,
     CompanyController,
+    CustomerController,
   ],
   providers: [
     InvoiceService,
@@ -34,6 +42,7 @@ import { SyncTransactionService } from './services/syncTransaction.service';
     SyncTransactionService,
     SaltEdgeService,
     CompanyService,
+    CustomerService,
   ],
 })
 export class AppModule {}
